@@ -1,0 +1,465 @@
+{
+  "data": {
+    "monitors": [
+      {
+        "locationStop": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [16.3258375, 48.2130272]
+          },
+          "properties": {
+            "name": "60200602",
+            "title": "Johann-Nepomuk-Berger-Platz",
+            "municipality": "Wien",
+            "municipalityId": 90001,
+            "type": "stop",
+            "coordName": "WGS84",
+            "attributes": { "rbl": 276 }
+          }
+        },
+        "lines": [
+          {
+            "name": "44",
+            "towards": "Ottakring, Maroltingergasse",
+            "direction": "H",
+            "platform": "1",
+            "richtungsId": "1",
+            "barrierFree": true,
+            "realtimeSupported": true,
+            "trafficjam": false,
+            "departures": {
+              "departure": [
+                {
+                  "departureTime": {
+                    "timePlanned": "2020-07-15T13:46:30.000+0200",
+                    "timeReal": "2020-07-15T13:54:12.000+0200",
+                    "countdown": 2
+                  }
+                },
+                {
+                  "departureTime": {
+                    "timePlanned": "2020-07-15T13:54:00.000+0200",
+                    "timeReal": "2020-07-15T13:57:59.000+0200",
+                    "countdown": 6
+                  }
+                },
+                {
+                  "departureTime": {
+                    "timePlanned": "2020-07-15T14:01:30.000+0200",
+                    "timeReal": "2020-07-15T14:01:57.000+0200",
+                    "countdown": 10
+                  }
+                },
+                {
+                  "departureTime": {
+                    "timePlanned": "2020-07-15T14:09:00.000+0200",
+                    "timeReal": "2020-07-15T14:09:00.000+0200",
+                    "countdown": 17
+                  }
+                },
+                {
+                  "departureTime": {
+                    "timePlanned": "2020-07-15T14:16:30.000+0200",
+                    "timeReal": "2020-07-15T14:16:30.000+0200",
+                    "countdown": 24
+                  }
+                },
+                {
+                  "departureTime": {
+                    "timePlanned": "2020-07-15T14:24:00.000+0200",
+                    "timeReal": "2020-07-15T14:24:00.000+0200",
+                    "countdown": 32
+                  }
+                },
+                {
+                  "departureTime": {
+                    "timePlanned": "2020-07-15T14:39:00.000+0200",
+                    "timeReal": "2020-07-15T14:39:00.000+0200",
+                    "countdown": 47
+                  }
+                },
+                {
+                  "departureTime": {
+                    "timePlanned": "2020-07-15T14:31:30.000+0200",
+                    "timeReal": "2020-07-15T14:40:22.000+0200",
+                    "countdown": 48
+                  }
+                },
+                {
+                  "departureTime": {
+                    "timePlanned": "2020-07-15T14:46:30.000+0200",
+                    "timeReal": "2020-07-15T14:46:30.000+0200",
+                    "countdown": 54
+                  }
+                },
+                {
+                  "departureTime": {
+                    "timePlanned": "2020-07-15T14:54:00.000+0200",
+                    "timeReal": "2020-07-15T14:54:00.000+0200",
+                    "countdown": 62
+                  }
+                },
+                {
+                  "departureTime": {
+                    "timePlanned": "2020-07-15T15:01:30.000+0200",
+                    "timeReal": "2020-07-15T15:01:30.000+0200",
+                    "countdown": 69
+                  }
+                }
+              ]
+            },
+            "type": "ptTram",
+            "lineId": 144
+          }
+        ],
+        "attributes": {}
+      },
+      {
+        "locationStop": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [16.3253058, 48.2131641]
+          },
+          "properties": {
+            "name": "60200602",
+            "title": "Johann-Nepomuk-Berger-Platz",
+            "municipality": "Wien",
+            "municipalityId": 90001,
+            "type": "stop",
+            "coordName": "WGS84",
+            "attributes": { "rbl": 246 }
+          }
+        },
+        "lines": [
+          {
+            "name": "44",
+            "towards": "Schottentor U",
+            "direction": "R",
+            "platform": "2",
+            "richtungsId": "2",
+            "barrierFree": true,
+            "realtimeSupported": true,
+            "trafficjam": false,
+            "departures": {
+              "departure": [
+                {
+                  "departureTime": {
+                    "timePlanned": "2020-07-15T13:58:30.000+0200",
+                    "timeReal": "2020-07-15T13:58:03.000+0200",
+                    "countdown": 6
+                  }
+                },
+                {
+                  "departureTime": {
+                    "timePlanned": "2020-07-15T13:21:00.000+0200",
+                    "timeReal": "2020-07-15T13:59:52.000+0200",
+                    "countdown": 7
+                  },
+                  "vehicle": {
+                    "name": "44",
+                    "towards": "Johann-Nepomuk-Berger-Pl.",
+                    "direction": "R",
+                    "richtungsId": "2",
+                    "barrierFree": true,
+                    "realtimeSupported": true,
+                    "trafficjam": true,
+                    "type": "ptTram",
+                    "attributes": {},
+                    "linienId": 144
+                  }
+                },
+                {
+                  "departureTime": {
+                    "timePlanned": "2020-07-15T14:13:30.000+0200",
+                    "timeReal": "2020-07-15T14:13:30.000+0200",
+                    "countdown": 21
+                  }
+                },
+                {
+                  "departureTime": {
+                    "timePlanned": "2020-07-15T14:06:00.000+0200",
+                    "timeReal": "2020-07-15T14:15:52.000+0200",
+                    "countdown": 23
+                  }
+                },
+                {
+                  "departureTime": {
+                    "timePlanned": "2020-07-15T14:21:00.000+0200",
+                    "timeReal": "2020-07-15T14:21:00.000+0200",
+                    "countdown": 29
+                  }
+                },
+                {
+                  "departureTime": {
+                    "timePlanned": "2020-07-15T14:28:30.000+0200",
+                    "timeReal": "2020-07-15T14:28:30.000+0200",
+                    "countdown": 36
+                  }
+                },
+                {
+                  "departureTime": {
+                    "timePlanned": "2020-07-15T14:36:00.000+0200",
+                    "timeReal": "2020-07-15T14:36:00.000+0200",
+                    "countdown": 44
+                  }
+                },
+                {
+                  "departureTime": {
+                    "timePlanned": "2020-07-15T14:43:30.000+0200",
+                    "timeReal": "2020-07-15T14:43:30.000+0200",
+                    "countdown": 51
+                  }
+                },
+                {
+                  "departureTime": {
+                    "timePlanned": "2020-07-15T14:51:00.000+0200",
+                    "timeReal": "2020-07-15T14:54:52.000+0200",
+                    "countdown": 62
+                  }
+                },
+                {
+                  "departureTime": {
+                    "timePlanned": "2020-07-15T14:58:00.000+0200",
+                    "timeReal": "2020-07-15T14:58:00.000+0200",
+                    "countdown": 66
+                  }
+                }
+              ]
+            },
+            "type": "ptTram",
+            "lineId": 144
+          }
+        ],
+        "attributes": {}
+      },
+      {
+        "locationStop": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [16.3254775, 48.2105769]
+          },
+          "properties": {
+            "name": "60201374",
+            "title": "Feßtgasse",
+            "municipality": "Wien",
+            "municipalityId": 90001,
+            "type": "stop",
+            "coordName": "WGS84",
+            "attributes": { "rbl": 1382 }
+          }
+        },
+        "lines": [
+          {
+            "name": "46",
+            "towards": "Joachimsthalerplatz",
+            "direction": "H",
+            "platform": "1",
+            "richtungsId": "1",
+            "barrierFree": true,
+            "realtimeSupported": true,
+            "trafficjam": false,
+            "departures": {
+              "departure": [
+                {
+                  "departureTime": {
+                    "timePlanned": "2020-07-15T13:50:00.000+0200",
+                    "timeReal": "2020-07-15T13:54:54.000+0200",
+                    "countdown": 3
+                  }
+                },
+                {
+                  "departureTime": {
+                    "timePlanned": "2020-07-15T13:56:00.000+0200",
+                    "timeReal": "2020-07-15T13:57:45.000+0200",
+                    "countdown": 5
+                  }
+                },
+                {
+                  "departureTime": {
+                    "timePlanned": "2020-07-15T14:02:00.000+0200",
+                    "timeReal": "2020-07-15T14:03:09.000+0200",
+                    "countdown": 11
+                  }
+                },
+                {
+                  "departureTime": {
+                    "timePlanned": "2020-07-15T14:08:00.000+0200",
+                    "timeReal": "2020-07-15T14:08:14.000+0200",
+                    "countdown": 16
+                  }
+                },
+                {
+                  "departureTime": {
+                    "timePlanned": "2020-07-15T14:14:00.000+0200",
+                    "timeReal": "2020-07-15T14:14:00.000+0200",
+                    "countdown": 22
+                  }
+                },
+                {
+                  "departureTime": {
+                    "timePlanned": "2020-07-15T14:20:00.000+0200",
+                    "timeReal": "2020-07-15T14:20:00.000+0200",
+                    "countdown": 28
+                  }
+                },
+                {
+                  "departureTime": {
+                    "timePlanned": "2020-07-15T14:26:00.000+0200",
+                    "timeReal": "2020-07-15T14:26:00.000+0200",
+                    "countdown": 34
+                  }
+                },
+                {
+                  "departureTime": {
+                    "timePlanned": "2020-07-15T14:32:00.000+0200",
+                    "timeReal": "2020-07-15T14:32:00.000+0200",
+                    "countdown": 40
+                  }
+                },
+                {
+                  "departureTime": {
+                    "timePlanned": "2020-07-15T14:38:00.000+0200",
+                    "timeReal": "2020-07-15T14:38:00.000+0200",
+                    "countdown": 46
+                  }
+                },
+                {
+                  "departureTime": {
+                    "timePlanned": "2020-07-15T14:44:00.000+0200",
+                    "timeReal": "2020-07-15T14:44:00.000+0200",
+                    "countdown": 52
+                  }
+                },
+                {
+                  "departureTime": {
+                    "timePlanned": "2020-07-15T14:50:00.000+0200",
+                    "timeReal": "2020-07-15T14:50:00.000+0200",
+                    "countdown": 58
+                  }
+                },
+                {
+                  "departureTime": {
+                    "timePlanned": "2020-07-15T14:56:00.000+0200",
+                    "timeReal": "2020-07-15T14:56:00.000+0200",
+                    "countdown": 64
+                  }
+                }
+              ]
+            },
+            "type": "ptTram",
+            "lineId": 146
+          }
+        ],
+        "attributes": {}
+      },
+      {
+        "locationStop": {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [16.3255005, 48.2160761]
+          },
+          "properties": {
+            "name": "60200861",
+            "title": "Mayssengasse",
+            "municipality": "Wien",
+            "municipalityId": 90001,
+            "type": "stop",
+            "coordName": "WGS84",
+            "attributes": { "rbl": 528 }
+          }
+        },
+        "lines": [
+          {
+            "name": "9",
+            "towards": "Westbahnhof SU",
+            "direction": "H",
+            "platform": "1",
+            "richtungsId": "1",
+            "barrierFree": true,
+            "realtimeSupported": true,
+            "trafficjam": false,
+            "departures": {
+              "departure": [
+                {
+                  "departureTime": {
+                    "timePlanned": "2020-07-15T13:56:30.000+0200",
+                    "timeReal": "2020-07-15T13:57:09.000+0200",
+                    "countdown": 5
+                  }
+                },
+                {
+                  "departureTime": {
+                    "timePlanned": "2020-07-15T14:04:00.000+0200",
+                    "timeReal": "2020-07-15T14:02:45.000+0200",
+                    "countdown": 10
+                  }
+                },
+                {
+                  "departureTime": {
+                    "timePlanned": "2020-07-15T14:11:30.000+0200",
+                    "timeReal": "2020-07-15T14:11:30.000+0200",
+                    "countdown": 19
+                  }
+                },
+                {
+                  "departureTime": {
+                    "timePlanned": "2020-07-15T14:19:00.000+0200",
+                    "timeReal": "2020-07-15T14:19:00.000+0200",
+                    "countdown": 27
+                  }
+                },
+                {
+                  "departureTime": {
+                    "timePlanned": "2020-07-15T14:26:30.000+0200",
+                    "timeReal": "2020-07-15T14:26:30.000+0200",
+                    "countdown": 34
+                  }
+                },
+                {
+                  "departureTime": {
+                    "timePlanned": "2020-07-15T14:34:00.000+0200",
+                    "timeReal": "2020-07-15T14:34:00.000+0200",
+                    "countdown": 42
+                  }
+                },
+                {
+                  "departureTime": {
+                    "timePlanned": "2020-07-15T14:41:30.000+0200",
+                    "timeReal": "2020-07-15T14:41:30.000+0200",
+                    "countdown": 49
+                  }
+                },
+                {
+                  "departureTime": {
+                    "timePlanned": "2020-07-15T14:49:00.000+0200",
+                    "timeReal": "2020-07-15T14:49:00.000+0200",
+                    "countdown": 57
+                  }
+                },
+                {
+                  "departureTime": {
+                    "timePlanned": "2020-07-15T14:56:30.000+0200",
+                    "timeReal": "2020-07-15T14:56:30.000+0200",
+                    "countdown": 64
+                  }
+                }
+              ]
+            },
+            "type": "ptTram",
+            "lineId": 109
+          }
+        ],
+        "attributes": {}
+      }
+    ]
+  },
+  "message": {
+    "value": "OK",
+    "messageCode": 1,
+    "serverTime": "2020-07-15T13:51:54.000+0200"
+  }
+}

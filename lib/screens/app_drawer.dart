@@ -25,7 +25,7 @@ class AppDrawer extends StatelessWidget {
             automaticallyImplyLeading: true,
           ),
           ListTile(
-            leading: Icon(Icons.shop),
+            leading: Icon(Icons.home),
             title: Text("Home"),
             onTap: () => Navigator.of(context).pushReplacementNamed("/"),
           ),
@@ -39,7 +39,7 @@ class AppDrawer extends StatelessWidget {
               //48.231338, 16.352092
               //48.213874, 16.326090
               onPressed: () =>
-                  db.fetchCoordinateRangeFromDatabase(48.213601, 16.326032),
+                  db.fetchCoordinateRangeFromDatabase(48.156471, 16.394608),
               child: Text("coordinateFunction")),
           FlatButton(
               //48.231338, 16.352092

@@ -1,4 +1,5 @@
 import 'package:csv/csv.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:sqflite/sqflite.dart';
 
@@ -72,11 +73,11 @@ class SqLiteDatabase {
   buildData() async {
     final db = await SqLiteDatabase.database(databaseName);
     final String sql = '''
-      SELECT f.LineID, f.LineText, h.StopID, f.MeansOfTransport, h.StopText, 
+      SELECT f.LineID, f.LineText, h.StopID, f.MeansOfTransport, h.StopText,
       h.Longitude, h.Latitude
-      FROM wienerlinien_ogd_fahrwegverlaeufe l 
-      INNER JOIN wienerlinien_ogd_linien f ON l.LineID = f.LineID 
-      INNER JOIN wienerlinien_ogd_haltepunkte h ON l.StopID = h.StopID 
+      FROM wienerlinien_ogd_fahrwegverlaeufe l
+      INNER JOIN wienerlinien_ogd_linien f ON l.LineID = f.LineID
+      INNER JOIN wienerlinien_ogd_haltepunkte h ON l.StopID = h.StopID
       ''';
     final List res = await db.rawQuery(sql);
     final lineIDs = res.map((element) => element["LineID"]).toSet().toList();
@@ -108,12 +109,14 @@ class SqLiteDatabase {
       AND h.Latitude BETWEEN $rangeDownLat AND $rangeUpLat
           ''');
 
-      final lineIDs =
-          haltepunkte.map((element) => element["LineID"]).toSet().toList();
-      final haltepunkteMap = lineIDs
+      final stopID =
+          haltepunkte.map((element) => element["StopID"]).toSet().toList();
+      final haltepunkteMap = stopID
           .map((item) =>
-              haltepunkte.firstWhere((element) => item == element['LineID']))
+              haltepunkte.firstWhere((element) => item == element['StopID']))
           .toList();
+      print("StopIDs: " + stopID.toString());
+      // print(haltepunkteMap);
 
       return haltepunkteMap;
     } catch (e) {
@@ -132,13 +135,12 @@ class SqLiteDatabase {
       FROM wienerlinien_ogd_fahrwegverlaeufe l 
       INNER JOIN wienerlinien_ogd_linien f ON l.LineID = f.LineID 
       INNER JOIN wienerlinien_ogd_haltepunkte h ON l.StopID = h.StopID 
-      WHERE h.StopText = "Siedlung Süd Ost"
           ''');
 
       final haltepunkteMap = ignoreUnusedIDs(haltepunkte);
 
-      print(haltepunkteMap);
-      print(haltepunkteMap.length);
+      // print(haltepunkteMap);
+      // print(haltepunkteMap.length);
     } catch (e) {
       print("ERROR FETCHING DATA:" + e.toString());
       return null;
@@ -154,3 +156,25 @@ class SqLiteDatabase {
     return haltepunkteMap;
   }
 }
+
+// String sequence = '''
+// SELECT f.LineID, f.LineText, h.StopID, f.MeansOfTransport, h.StopText,
+// h.Longitude, h.Latitude
+// FROM wienerlinien_ogd_haltepunkte h
+// INNER JOIN wienerlinien_ogd_linien f ON l.LineID = f.LineID
+// INNER JOIN wienerlinien_ogd_fahrwegverlaeufe l ON l.StopID = h.StopID
+// WHERE StopText LIKE
+// ''';
+// for (int i = 0; stopTextContainer.length > i; i++) {
+//   if (i < stopTextContainer.length - 1) {
+//     sequence =
+//         sequence + " '%${stopTextContainer[i]}%' OR StopText LIKE ";
+//     continue;
+//   }
+//   sequence = sequence + " '%${stopTextContainer[i]}%' ";
+// }
+// final q = await d.rawQuery(sequence);
+// print(q);
+// final stopTextContainer =
+// haltepunkte.map((element) => element['StopText']).toSet().toList();
+// print("StopText: " + stopTextContainer.toString());

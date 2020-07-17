@@ -80,6 +80,9 @@ class WienerLinienMaindataProvider with ChangeNotifier {
 
   Future<void> fetchStopIDsFromAPI(List<String> stopList,
       {listen: true}) async {
+    if (stopList.contains("4213")) {
+      stopList.remove("4213");
+    }
     final String url = rootUrl + "monitor?";
     String clampedStopIDs = "";
     stopList.forEach((element) {

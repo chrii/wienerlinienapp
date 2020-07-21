@@ -1,7 +1,6 @@
-import 'dart:convert';
+import 'dart:convert' as json;
 
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
 import 'package:location/location.dart';
 import 'package:wienerlinienapp/misc/database.dart';
 import 'package:wienerlinienapp/models/station_model.dart';
@@ -90,44 +89,63 @@ class WienerLinienMaindataProvider with ChangeNotifier {
     });
     final finalUrl = url + clampedStopIDs;
     print("Build URL: " + finalUrl);
-    final Response response = await http.get(finalUrl);
-    if (response.statusCode == 200) {
-      final encode = jsonDecode(response.body);
 
-      final List<StationRequestBody> wrapInModel =
-          encode['data']['monitors'].map<StationRequestBody>((monitorItems) {
-        final properties = monitorItems['locationStop']['properties'];
-        final lineType = monitorItems['type'];
-        final List<LineDetails> line =
-            monitorItems['lines'].map<LineDetails>((line) {
-          final List<Departures> departure = line['departures']['departure']
-              .map<Departures>((dep) => Departures(
-                    countdown: dep['departureTime']['countdown'],
-                    timePlanned:
-                        DateTime.parse(dep['departureTime']['timePlanned']),
-                    timeReal: DateTime.parse(dep['departureTime']['timeReal'] ??
-                        DateTime.now().toString()),
-                  ))
-              .toList();
-          return LineDetails(
-            departures: departure,
-            barrierFree: line['barrierFree'],
-            direction: line['direction'],
-            name: line['name'],
-            towards: line['towards'],
-            type: line['type'],
+    try {
+      const url =
+          "http://www.wienerlinien.at/ogd_realtime/monitor?&stopId=4133";
+
+      final http.Response response = await http.get(finalUrl);
+      if (response.statusCode == 200) {
+        final parsedJson = json.jsonDecode(response.body);
+
+        final List<StationRequestBody> wrapped = parsedJson['data']['monitors']
+            .map<StationRequestBody>((monitorItems) {
+          final properties = monitorItems['locationStop']['properties'];
+          final lineType = monitorItems['type'];
+          final List<LineDetails> line =
+              monitorItems['lines'].map<LineDetails>((line) {
+            final List<Departures> departure =
+                line['departures']['departure'].map<Departures>((dep) {
+              if (dep['departureTime'].length <= 0) {
+                return Departures(
+                    countdown: 0,
+                    timePlanned: DateTime.now(),
+                    timeReal: DateTime.now());
+              }
+              return Departures(
+                countdown: dep['departureTime']['countdown'],
+                timePlanned:
+                    DateTime.parse(dep['departureTime']['timePlanned']),
+                timeReal: DateTime.parse(dep['departureTime']['timeReal'] ??
+                    DateTime.now().toString()),
+              );
+            }).toList();
+            return LineDetails(
+              departures: departure,
+              barrierFree: line['barrierFree'],
+              direction: line['direction'],
+              name: line['name'],
+              towards: line['towards'],
+              type: line['type'],
+            );
+          }).toList();
+          return StationRequestBody(
+            lineDetails: line,
+            idName: properties['idName'],
+            stationTitle: properties['title'],
+            type: properties['type'],
+            lineType: lineType,
           );
         }).toList();
-        return StationRequestBody(
-          lineDetails: line,
-          idName: properties['idName'],
-          stationTitle: properties['title'],
-          type: properties['type'],
-          lineType: lineType,
-        );
-      }).toList();
-      realtime = wrapInModel;
+        print(wrapped.first.lineDetails.first.departures.first.countdown);
+        realtime = wrapped;
+      } else {
+        throw new Exception("Error ${response.body}");
+      }
+    } catch (e) {
+      print(e);
+    } finally {
+      if (listen) notifyListeners();
     }
-    if (listen) notifyListeners();
   }
 }

@@ -51,13 +51,13 @@ class _SingleStationCard extends State<SingleStationCard> with ColorMixin {
                           .toString() ??
                       "-"),
                   if (widget._stationData.lineDetails.first.departures.length >=
-                      1)
+                      2)
                     TimeBox(widget._stationData.lineDetails.first.departures[1]
                             .countdown
                             .toString() ??
                         "-"),
                   if (widget._stationData.lineDetails.first.departures.length >=
-                      2)
+                      3)
                     TimeBox(widget._stationData.lineDetails.first.departures[2]
                             .countdown
                             .toString() ??

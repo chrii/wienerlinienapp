@@ -84,9 +84,7 @@ class SqLiteDatabase {
     final haltepunkteMap = lineIDs
         .map((item) => res.firstWhere((element) => item == element['LineID']))
         .toList();
-    // final f = res.where((element) => element.StopID == 171);
-    // print(f.length);
-    print(haltepunkteMap);
+
     stations = haltepunkteMap;
   }
 
@@ -115,8 +113,6 @@ class SqLiteDatabase {
           .map((item) =>
               haltepunkte.firstWhere((element) => item == element['StopID']))
           .toList();
-      print("StopIDs: " + stopID.toString());
-      // print(haltepunkteMap);
 
       return haltepunkteMap;
     } catch (e) {
@@ -125,6 +121,7 @@ class SqLiteDatabase {
     }
   }
 
+  // Only for Debug at this point
   fetch() async {
     final d = await SqLiteDatabase.database(databaseName);
 
@@ -138,9 +135,6 @@ class SqLiteDatabase {
           ''');
 
       final haltepunkteMap = ignoreUnusedIDs(haltepunkte);
-
-      // print(haltepunkteMap);
-      // print(haltepunkteMap.length);
     } catch (e) {
       print("ERROR FETCHING DATA:" + e.toString());
       return null;
@@ -156,25 +150,3 @@ class SqLiteDatabase {
     return haltepunkteMap;
   }
 }
-
-// String sequence = '''
-// SELECT f.LineID, f.LineText, h.StopID, f.MeansOfTransport, h.StopText,
-// h.Longitude, h.Latitude
-// FROM wienerlinien_ogd_haltepunkte h
-// INNER JOIN wienerlinien_ogd_linien f ON l.LineID = f.LineID
-// INNER JOIN wienerlinien_ogd_fahrwegverlaeufe l ON l.StopID = h.StopID
-// WHERE StopText LIKE
-// ''';
-// for (int i = 0; stopTextContainer.length > i; i++) {
-//   if (i < stopTextContainer.length - 1) {
-//     sequence =
-//         sequence + " '%${stopTextContainer[i]}%' OR StopText LIKE ";
-//     continue;
-//   }
-//   sequence = sequence + " '%${stopTextContainer[i]}%' ";
-// }
-// final q = await d.rawQuery(sequence);
-// print(q);
-// final stopTextContainer =
-// haltepunkte.map((element) => element['StopText']).toSet().toList();
-// print("StopText: " + stopTextContainer.toString());

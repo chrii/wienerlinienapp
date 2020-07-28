@@ -1,38 +1,45 @@
 import 'package:flutter/material.dart';
 
 mixin ColorMixin {
+  static const Color blue = Color.fromRGBO(30, 30, 224, 1);
+  static const Color red = Color.fromRGBO(227, 0, 14, 1);
+  static const Color violet = Color.fromRGBO(172, 63, 222, 1);
+  static const Color orange = Color.fromRGBO(231, 135, 39, 1);
+  static const Color green = Color.fromRGBO(67, 181, 22, 1);
+  static const Color brown = Color.fromRGBO(181, 78, 22, 1);
+
   setStationColor(String type, String lineName) {
     switch (type) {
       case "ptBus":
-        return Color.fromRGBO(30, 30, 224, 1);
+        return blue;
         break;
       case "ptTram":
-        return Color.fromRGBO(30, 30, 224, 1);
+        return blue;
         break;
       case "ptMetro":
         switch (lineName) {
           case "U1":
-            return Color.fromRGBO(227, 0, 14, 1);
+            return red;
             break;
           case "U2":
-            return Color.fromRGBO(172, 63, 222, 1);
+            return violet;
             break;
           case "U3":
-            return Color.fromRGBO(231, 135, 39, 1);
+            return orange;
             break;
           case "U4":
-            return Color.fromRGBO(67, 181, 22, 1);
+            return green;
             break;
           case "U6":
-            return Color.fromRGBO(181, 78, 22, 1);
+            return brown;
             break;
           default:
-            return Color.fromRGBO(227, 0, 14, 1);
+            return red;
             break;
         }
         break;
       default:
-        return Color.fromRGBO(30, 30, 224, 1);
+        return blue;
         break;
     }
   }

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:wienerlinienapp/misc/color_mixin.dart';
-import 'package:wienerlinienapp/misc/wienerlinien_maindata_provider.dart';
 import 'package:wienerlinienapp/models/station_request_body.dart';
 import 'package:wienerlinienapp/models/station_model.dart';
+import 'package:wienerlinienapp/screens/more_information_screen.dart';
 
 class SingleStationCard extends StatefulWidget {
   final StationRequestBody _stationData;
@@ -79,7 +78,10 @@ class _SingleStationCard extends State<SingleStationCard> with ColorMixin {
                 materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                 icon: Icon(Icons.info_outline),
                 label: Text("More Info"),
-                onPressed: () {},
+                // TODO: PARAMS ANPASSEN
+                onPressed: () => Navigator.of(context).pushNamed(
+                    MoreInformationScreen.routeName,
+                    arguments: {"stopID": 2610}),
               ),
             ],
           ),

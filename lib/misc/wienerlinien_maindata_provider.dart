@@ -91,9 +91,6 @@ class WienerLinienMaindataProvider with ChangeNotifier {
     print("Build URL: " + finalUrl);
 
     try {
-      const url =
-          "http://www.wienerlinien.at/ogd_realtime/monitor?&stopId=4133";
-
       final http.Response response = await http.get(finalUrl);
       if (response.statusCode == 200) {
         final parsedJson = json.jsonDecode(response.body);
@@ -137,7 +134,6 @@ class WienerLinienMaindataProvider with ChangeNotifier {
             lineType: lineType,
           );
         }).toList();
-        print(wrapped.first.lineDetails.first.departures.first.countdown);
         realtime = wrapped;
       } else {
         throw new Exception("Error ${response.body}");

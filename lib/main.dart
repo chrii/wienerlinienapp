@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:wienerlinienapp/misc/wienerlinien_maindata_provider.dart';
 import 'package:wienerlinienapp/screens/app_drawer.dart';
+import 'package:wienerlinienapp/screens/more_information_screen.dart';
 import 'package:wienerlinienapp/widgets/single_station_card.dart';
 
 void main() {
@@ -31,6 +32,9 @@ class MyApp extends StatelessWidget {
         create: (ctx) => WienerLinienMaindataProvider(),
         child: InitWidget(),
       ),
+      routes: {
+        MoreInformationScreen.routeName: (ctx) => MoreInformationScreen(),
+      },
     );
   }
 }
@@ -85,8 +89,6 @@ class OfflineBuilder extends StatelessWidget {
           child: FutureBuilder(
             future: provider.getNearbyStations(),
             builder: (ctx, snapshot) {
-              print(provider.nearbyStations.length);
-              print(provider.realtime.length);
               return snapshot.connectionState == ConnectionState.waiting
                   ? Center(child: CircularProgressIndicator())
                   : Column(
@@ -124,8 +126,6 @@ class MainBuilder extends StatelessWidget {
           child: FutureBuilder(
             future: provider.getNearbyStations(),
             builder: (ctx, snapshot) {
-              print(provider.nearbyStations.length);
-              print(provider.realtime.length);
               return snapshot.connectionState == ConnectionState.waiting
                   ? Center(child: CircularProgressIndicator())
                   : Column(

@@ -40,10 +40,13 @@ class MyApp extends StatelessWidget {
 }
 
 class InitWidget extends StatelessWidget {
-  Future<bool> _checkInternetAndDatabaseConnectionStatus() async {
+  Future<bool> _checkInternetAndDatabaseConnectionStatus(
+      BuildContext context) async {
     try {
       final result = await InternetAddress.lookup("example.com");
       if (result.isNotEmpty || result[0].rawAddress.isNotEmpty) {
+        // await Provider.of<WienerLinienMaindataProvider>(context, listen: false)
+        //     .stoerungUeberZeit();
         return true;
       }
       return false;
@@ -62,7 +65,7 @@ class InitWidget extends StatelessWidget {
         title: Text("Nearby"),
       ),
       body: FutureBuilder(
-        future: _checkInternetAndDatabaseConnectionStatus(),
+        future: _checkInternetAndDatabaseConnectionStatus(context),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Center(child: CircularProgressIndicator());

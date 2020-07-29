@@ -1,0 +1,408 @@
+{
+  "data": {
+    "pois": [
+      {
+        "refPoiCategoryId": -1,
+        "name": "ftazW_1031899",
+        "title": "Südtiroler Platz (Hauptbahnhof)",
+        "description": "Ausgang Favoritenstraße - Zugang ÖBB Bahnsteig - Fahrtrichtung 18 Schlachthausgasse",
+        "attributes": {
+          "ausBis": "30.07.2020 00:45",
+          "reason": "",
+          "relatedLines": ["18"],
+          "station": "Südtiroler Platz (Hauptbahnhof)",
+          "ausVon": "29.07.2020 20:45",
+          "location": "Ausgang Favoritenstraße - Zugang ÖBB Bahnsteig - Fahrtrichtung 18 Schlachthausgasse",
+          "towards": "18 Schlachthausgasse",
+          "rbls": [0],
+          "status": "geplante Wartung"
+        },
+        "time": {
+          "start": "2020-07-29T20:45:00.000+0200",
+          "end": "2020-07-30T00:45:00.000+0200"
+        },
+        "relatedLines": ["18"],
+        "relatedStops": [0]
+      },
+      {
+        "refPoiCategoryId": -1,
+        "name": "ftazW_725",
+        "title": "Schottentor",
+        "description": "Passage - U2 Mittelbahnsteig",
+        "attributes": {
+          "ausBis": "31.07.2020 05:15",
+          "reason": "",
+          "relatedLines": ["U2"],
+          "station": "Schottentor",
+          "ausVon": "31.07.2020 01:15",
+          "location": "Passage - U2 Mittelbahnsteig",
+          "towards": "U2 beide Richtungen",
+          "rbls": [4203, 4212],
+          "status": "geplante Wartung"
+        },
+        "time": {
+          "start": "2020-07-31T01:15:00.000+0200",
+          "end": "2020-07-31T05:15:00.000+0200"
+        },
+        "relatedLines": ["U2"],
+        "relatedStops": [4203, 4212]
+      },
+      {
+        "refPoiCategoryId": -1,
+        "name": "ftazW_84",
+        "title": "Volkstheater",
+        "description": "Ausgang Dr. Karl Renner Ring - Zwischengeschoss",
+        "attributes": {
+          "ausBis": "29.07.2020 05:15",
+          "reason": "",
+          "relatedLines": [],
+          "station": "Volkstheater",
+          "ausVon": "29.07.2020 01:15",
+          "location": "Ausgang Dr. Karl Renner Ring - Zwischengeschoss",
+          "towards": "",
+          "rbls": [],
+          "status": "geplante Wartung"
+        },
+        "time": {
+          "start": "2020-07-29T01:15:00.000+0200",
+          "end": "2020-07-29T05:15:00.000+0200"
+        }
+      },
+      {
+        "refPoiCategoryId": -1,
+        "name": "ftazW_113",
+        "title": "Schwedenplatz",
+        "description": "Zwischengeschoss Zugang Aufzug U1 - U4 Mittelbahnsteig",
+        "attributes": {
+          "ausBis": "31.07.2020 00:45",
+          "reason": "",
+          "relatedLines": ["U4"],
+          "station": "Schwedenplatz",
+          "ausVon": "30.07.2020 20:45",
+          "location": "Zwischengeschoss Zugang Aufzug U1 - U4 Mittelbahnsteig",
+          "towards": "U4 beide Richtungen",
+          "rbls": [4427, 4410],
+          "status": "geplante Wartung"
+        },
+        "time": {
+          "start": "2020-07-30T20:45:00.000+0200",
+          "end": "2020-07-31T00:45:00.000+0200"
+        },
+        "relatedLines": ["U4"],
+        "relatedStops": [4427, 4410]
+      },
+      {
+        "refPoiCategoryId": -1,
+        "name": "ftazW_147",
+        "title": "Rochusgasse",
+        "description": "Ausgang Rochusmarkt - U3 Mittelbahnsteig",
+        "attributes": {
+          "ausBis": "29.07.2020 00:45",
+          "reason": "",
+          "relatedLines": ["U3"],
+          "station": "Rochusgasse",
+          "ausVon": "28.07.2020 20:45",
+          "location": "Ausgang Rochusmarkt - U3 Mittelbahnsteig",
+          "towards": "U3 beide Richtungen",
+          "rbls": [4914, 4903],
+          "status": "geplante Wartung"
+        },
+        "time": {
+          "start": "2020-07-28T20:45:00.000+0200",
+          "end": "2020-07-29T00:45:00.000+0200"
+        },
+        "relatedLines": ["U3"],
+        "relatedStops": [4914, 4903]
+      },
+      {
+        "refPoiCategoryId": -1,
+        "name": "ftazW_582",
+        "title": "Karlsplatz",
+        "description": "Karlsplatzpassage - U2 Bahnsteig Richtung Karlsplatz",
+        "attributes": {
+          "ausBis": "30.07.2020 05:15",
+          "reason": "",
+          "relatedLines": ["U2"],
+          "station": "Karlsplatz",
+          "ausVon": "30.07.2020 01:15",
+          "location": "Karlsplatzpassage - U2 Bahnsteig Richtung Karlsplatz",
+          "towards": "U2 Karlsplatz",
+          "rbls": [],
+          "status": "geplante Wartung"
+        },
+        "time": {
+          "start": "2020-07-30T01:15:00.000+0200",
+          "end": "2020-07-30T05:15:00.000+0200"
+        },
+        "relatedLines": ["U2"]
+      },
+      {
+        "refPoiCategoryId": -1,
+        "name": "ftazW_1018058",
+        "title": "Taborstraße",
+        "description": "Ausgang Taborstraße/Obere Augartenstraße - Zwischengeschoss - U2 Mittelbahnsteig",
+        "attributes": {
+          "ausBis": "29.07.2020 05:15",
+          "reason": "",
+          "relatedLines": ["U2"],
+          "station": "Taborstraße",
+          "ausVon": "29.07.2020 01:15",
+          "location": "Ausgang Taborstraße/Obere Augartenstraße - Zwischengeschoss - U2 Mittelbahnsteig",
+          "towards": "U2 beide Richtungen",
+          "rbls": [4261, 4262],
+          "status": "geplante Wartung"
+        },
+        "time": {
+          "start": "2020-07-29T01:15:00.000+0200",
+          "end": "2020-07-29T05:15:00.000+0200"
+        },
+        "relatedLines": ["U2"],
+        "relatedStops": [4261, 4262]
+      },
+      {
+        "refPoiCategoryId": -1,
+        "name": "ftazW_1018092",
+        "title": "Praterstern",
+        "description": "Ausgang Venediger Au/Ausstellungsstraße - U2 Mittelbahnsteig",
+        "attributes": {
+          "ausBis": "29.07.2020 00:30",
+          "reason": "",
+          "relatedLines": ["U2"],
+          "station": "Praterstern",
+          "ausVon": "28.07.2020 20:30",
+          "location": "Ausgang Venediger Au/Ausstellungsstraße - U2 Mittelbahnsteig",
+          "towards": "U2 beide Richtungen",
+          "rbls": [4260, 4263],
+          "status": "geplante Wartung"
+        },
+        "time": {
+          "start": "2020-07-28T20:30:00.000+0200",
+          "end": "2020-07-29T00:30:00.000+0200"
+        },
+        "relatedLines": ["U2"],
+        "relatedStops": [4260, 4263]
+      },
+      {
+        "refPoiCategoryId": -1,
+        "name": "ftazW_82",
+        "title": "Volkstheater",
+        "description": "Ausgang Bellariastraße - U2 Bahnsteig Richtung Seestadt - U3 Mittelbahnsteig",
+        "attributes": {
+          "ausBis": "30.07.2020 00:45",
+          "reason": "",
+          "relatedLines": ["U2", "U3"],
+          "station": "Volkstheater",
+          "ausVon": "29.07.2020 20:45",
+          "location": "Ausgang Bellariastraße - U2 Bahnsteig Richtung Seestadt - U3 Mittelbahnsteig",
+          "towards": "U2 Seestadt, U3 beide Richtungen",
+          "rbls": [4206, 4909, 4908],
+          "status": "geplante Wartung"
+        },
+        "time": {
+          "start": "2020-07-29T20:45:00.000+0200",
+          "end": "2020-07-30T00:45:00.000+0200"
+        },
+        "relatedLines": ["U2", "U3"],
+        "relatedStops": [4206, 4909, 4908]
+      },
+      {
+        "refPoiCategoryId": -1,
+        "name": "ftazW_83",
+        "title": "Volkstheater",
+        "description": "Zwischengeschoss Aufgang Ring - U3 Mittelbahnsteig",
+        "attributes": {
+          "ausBis": "30.07.2020 05:15",
+          "reason": "",
+          "relatedLines": ["U3"],
+          "station": "Volkstheater",
+          "ausVon": "30.07.2020 01:15",
+          "location": "Zwischengeschoss Aufgang Ring - U3 Mittelbahnsteig",
+          "towards": "U3 beide Richtungen",
+          "rbls": [4909, 4908],
+          "status": "geplante Wartung"
+        },
+        "time": {
+          "start": "2020-07-30T01:15:00.000+0200",
+          "end": "2020-07-30T05:15:00.000+0200"
+        },
+        "relatedLines": ["U3"],
+        "relatedStops": [4909, 4908]
+      },
+      {
+        "refPoiCategoryId": -1,
+        "name": "ftazW_1031301",
+        "title": "Blechturmgasse",
+        "description": "Ausgang Äußerer Wiedner Gürtel - 18 Bahnsteig Richtung Schlachthausgasse",
+        "attributes": {
+          "ausBis": "31.07.2020 00:45",
+          "reason": "",
+          "relatedLines": ["18"],
+          "station": "Blechturmgasse",
+          "ausVon": "30.07.2020 20:45",
+          "location": "Ausgang Äußerer Wiedner Gürtel - 18 Bahnsteig Richtung Schlachthausgasse",
+          "towards": "18 Schlachthausgasse",
+          "rbls": [0],
+          "status": "geplante Wartung"
+        },
+        "time": {
+          "start": "2020-07-30T20:45:00.000+0200",
+          "end": "2020-07-31T00:45:00.000+0200"
+        },
+        "relatedLines": ["18"],
+        "relatedStops": [0]
+      },
+      {
+        "refPoiCategoryId": -1,
+        "name": "ftazW_1031302",
+        "title": "Blechturmgasse",
+        "description": "Ausgang Innerer Wiedner Gürtel - 18 Bahnsteig Richtung Burggasse",
+        "attributes": {
+          "ausBis": "31.07.2020 05:15",
+          "reason": "",
+          "relatedLines": ["18"],
+          "station": "Blechturmgasse",
+          "ausVon": "31.07.2020 01:15",
+          "location": "Ausgang Innerer Wiedner Gürtel - 18 Bahnsteig Richtung Burggasse",
+          "towards": "18 Burggasse-Stadthalle",
+          "rbls": [0],
+          "status": "geplante Wartung"
+        },
+        "time": {
+          "start": "2020-07-31T01:15:00.000+0200",
+          "end": "2020-07-31T05:15:00.000+0200"
+        },
+        "relatedLines": ["18"],
+        "relatedStops": [0]
+      },
+      {
+        "refPoiCategoryId": -1,
+        "name": "ftazW_1031898",
+        "title": "Südtiroler Platz (Hauptbahnhof)",
+        "description": "Ausgang Laxenburger Straße - 18 Bahnsteig Richtung Schlachthausgasse",
+        "attributes": {
+          "ausBis": "30.07.2020 05:15",
+          "reason": "",
+          "relatedLines": ["18"],
+          "station": "Südtiroler Platz (Hauptbahnhof)",
+          "ausVon": "30.07.2020 01:15",
+          "location": "Ausgang Laxenburger Straße - 18 Bahnsteig Richtung Schlachthausgasse",
+          "towards": "18 Schlachthausgasse",
+          "rbls": [0],
+          "status": "geplante Wartung"
+        },
+        "time": {
+          "start": "2020-07-30T01:15:00.000+0200",
+          "end": "2020-07-30T05:15:00.000+0200"
+        },
+        "relatedLines": ["18"],
+        "relatedStops": [0]
+      },
+      {
+        "refPoiCategoryId": -1,
+        "name": "ftazW_1032355",
+        "title": "Seestadt",
+        "description": "Ausgang Seestadtstraße, zu den Buslinien - Bahnsteig Linie U2",
+        "attributes": {
+          "ausBis": "29.07.2020 05:15",
+          "reason": "",
+          "relatedLines": ["U2"],
+          "station": "Seestadt",
+          "ausVon": "29.07.2020 01:15",
+          "location": "Ausgang Seestadtstraße, zu den Buslinien - Bahnsteig Linie U2",
+          "towards": "U2 beide Richtungen",
+          "rbls": [4277, 4276],
+          "status": "geplante Wartung"
+        },
+        "time": {
+          "start": "2020-07-29T01:15:00.000+0200",
+          "end": "2020-07-29T05:15:00.000+0200"
+        },
+        "relatedLines": ["U2"],
+        "relatedStops": [4277, 4276]
+      },
+      {
+        "refPoiCategoryId": -1,
+        "name": "ftazW_45",
+        "title": "Kardinal Nagl Platz",
+        "description": "Ausgang Keinergasse - U3 Mittelbahnsteig",
+        "attributes": {
+          "ausBis": "29.07.2020 05:15",
+          "reason": "",
+          "relatedLines": ["U3"],
+          "station": "Kardinal Nagl Platz",
+          "ausVon": "29.07.2020 01:15",
+          "location": "Ausgang Keinergasse - U3 Mittelbahnsteig",
+          "towards": "U3 beide Richtungen",
+          "rbls": [4915, 4902],
+          "status": "geplante Wartung"
+        },
+        "time": {
+          "start": "2020-07-29T01:15:00.000+0200",
+          "end": "2020-07-29T05:15:00.000+0200"
+        },
+        "relatedLines": ["U3"],
+        "relatedStops": [4915, 4902]
+      },
+      {
+        "refPoiCategoryId": -1,
+        "name": "ftazW_581",
+        "title": "Karlsplatz",
+        "description": "Karlsplatzpassage - U4 Mittelbahnsteig",
+        "attributes": {
+          "ausBis": "30.07.2020 00:45",
+          "reason": "",
+          "relatedLines": ["U4"],
+          "station": "Karlsplatz",
+          "ausVon": "29.07.2020 20:45",
+          "location": "Karlsplatzpassage - U4 Mittelbahnsteig",
+          "towards": "U4 beide Richtungen",
+          "rbls": [],
+          "status": "geplante Wartung"
+        },
+        "time": {
+          "start": "2020-07-29T20:45:00.000+0200",
+          "end": "2020-07-30T00:45:00.000+0200"
+        },
+        "relatedLines": ["U4"]
+      },
+      {
+        "refPoiCategoryId": -1,
+        "name": "ftazW_283",
+        "title": "Kagran",
+        "description": "Ausgang Anton Sattler Gasse - U1 Mittelbahnsteig",
+        "attributes": {
+          "ausBis": "30.07.2020 05:15",
+          "reason": "",
+          "relatedLines": ["U1"],
+          "station": "Kagran",
+          "ausVon": "30.07.2020 01:15",
+          "location": "Ausgang Anton Sattler Gasse - U1 Mittelbahnsteig",
+          "towards": "U1 beide Richtungen",
+          "rbls": [4127, 4102],
+          "status": "geplante Wartung"
+        },
+        "time": {
+          "start": "2020-07-30T01:15:00.000+0200",
+          "end": "2020-07-30T05:15:00.000+0200"
+        },
+        "relatedLines": ["U1"],
+        "relatedStops": [4127, 4102]
+      }
+    ],
+    "poiCategories": [
+      {
+        "id": -1,
+        "refPoiCategoryGroupId": -1,
+        "name": "aufzugsservice",
+        "trafficInfoNameList": "ftazW_1031899",
+        "title": "Aufzugsservice"
+      }
+    ],
+    "poiCategoryGroups": [{ "id": -1, "name": "News", "title": "News" }]
+  },
+  "message": {
+    "value": "OK",
+    "messageCode": 1,
+    "serverTime": "2020-07-28T12:43:18.000+0200"
+  }
+}

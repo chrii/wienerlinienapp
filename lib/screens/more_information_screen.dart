@@ -45,6 +45,8 @@ class _MoreInformationScreenState extends State<MoreInformationScreen> {
   }
 
   Widget build(BuildContext context) {
+    Provider.of<WienerLinienMaindataProvider>(context, listen: false)
+        .stoerungUeberZeit();
     checkToRefreshData();
     return Scaffold(
       appBar: AppBar(
@@ -171,9 +173,11 @@ class DetailedTabMenu extends StatefulWidget {
 }
 
 class _DetailedTabMenuState extends State<DetailedTabMenu> {
+  Object _lines;
+
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 2,
+      length: 3,
       initialIndex: 0,
       child: SizedBox(
         height: 300,
@@ -198,6 +202,9 @@ class _DetailedTabMenuState extends State<DetailedTabMenu> {
                     Tab(
                       icon: Icon(Icons.accessible),
                     ),
+                    Tab(
+                      icon: Icon(Icons.offline_bolt),
+                    ),
                   ],
                 ),
               ),
@@ -217,11 +224,45 @@ class _DetailedTabMenuState extends State<DetailedTabMenu> {
                               (e) => TimeBox(e.countdown.toString()),
                             )
                             .take(3),
+                        if (widget._stationRequestBody.lineDetails.first
+                                .departures.length <
+                            3)
+                          Center(
+                            child: Text("Yes"),
+                          ),
                       ],
                     ),
                   ),
                   Center(
-                    child: Text("test"),
+                    child: !widget
+                            ._stationRequestBody.lineDetails.first.barrierFree
+                        ? Text("Diese Station ist nicht Barrierefrei")
+                        : Text(
+                            "Hier erhalten Sie Informationen zu ausgefallenen Aufzügen"),
+                  ),
+                  Consumer<WienerLinienMaindataProvider>(
+                    builder: (context, value, child) {
+                      return FutureBuilder(
+                        future: value.stoerungAusLinienListe(
+                            widget._stationRequestBody.lineDetails.first.name),
+                        builder: (context, snapshot) {
+                          if (snapshot.connectionState ==
+                              ConnectionState.waiting)
+                            return Center(
+                              child: CircularProgressIndicator(),
+                            );
+                          if (snapshot.data.length == 0)
+                            return Center(
+                              child: Text("Keine Störungen aufgezeichnet"),
+                            );
+                          return Center(
+                            child: Text(snapshot.data.first["title"] +
+                                ",  " +
+                                snapshot.data.first["attributes"]["status"]),
+                          );
+                        },
+                      );
+                    },
                   ),
                 ],
               ),

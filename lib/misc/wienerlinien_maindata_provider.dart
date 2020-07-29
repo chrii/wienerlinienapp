@@ -1,5 +1,5 @@
-import 'dart:convert' as json;
-import 'dart:io';
+import 'dart:convert';
+import 'package:flutter/services.dart' show rootBundle;
 
 import 'package:flutter/material.dart';
 import 'package:location/location.dart';
@@ -15,6 +15,7 @@ class WienerLinienMaindataProvider with ChangeNotifier, TypeSpecificAttributes {
 
   List<StationModel> nearbyStations = [];
   List<StationRequestBody> realtime = [];
+  List stoerungen = [];
 
   Future<void> initialize(String databaseName) async {
     final db = SqLiteDatabase(databaseName);
@@ -96,7 +97,7 @@ class WienerLinienMaindataProvider with ChangeNotifier, TypeSpecificAttributes {
     try {
       final http.Response response = await http.get(finalUrl);
       if (response.statusCode == 200) {
-        final parsedJson = json.jsonDecode(response.body);
+        final parsedJson = jsonDecode(response.body);
 
         final List<StationRequestBody> wrapped = parsedJson['data']['monitors']
             .map<StationRequestBody>((monitorItems) {
@@ -163,7 +164,7 @@ class WienerLinienMaindataProvider with ChangeNotifier, TypeSpecificAttributes {
       if (!(response.statusCode <= 400)) {
         throw new Exception("Error code: ${response.statusCode}");
       }
-      final parsedJson = json.jsonDecode(response.body);
+      final parsedJson = jsonDecode(response.body);
       final List<StationRequestBody> stationRequestBody = parsedJson['data']
               ['monitors']
           .map<StationRequestBody>((monitorItems) {
@@ -215,6 +216,34 @@ class WienerLinienMaindataProvider with ChangeNotifier, TypeSpecificAttributes {
     } catch (e) {
       print(e);
       return null;
+    }
+  }
+
+  stoerungUeberZeit() async {
+    try {
+      final String json =
+          await rootBundle.loadString('assets/mock/stoerung_mock.json');
+      final decoded = jsonDecode(json);
+      final d = decoded["data"]["pois"] as List<dynamic>;
+
+      return d;
+    } catch (e) {
+      print(e);
+      // throw Exception(e);
+    }
+  }
+
+  stoerungAusLinienListe(String line) async {
+    try {
+      final res = await stoerungUeberZeit() as List<dynamic>;
+      final relatedLines = res.where((item) {
+        final i = item["relatedLines"] ?? [];
+        return i.contains(line);
+      }).toList();
+      print(relatedLines);
+      return relatedLines;
+    } catch (e) {
+      print(e);
     }
   }
 }

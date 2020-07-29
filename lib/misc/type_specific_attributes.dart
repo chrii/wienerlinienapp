@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-mixin ColorMixin {
+mixin TypeSpecificAttributes {
   static const Color blue = Color.fromRGBO(30, 30, 224, 1);
   static const Color red = Color.fromRGBO(227, 0, 14, 1);
   static const Color violet = Color.fromRGBO(172, 63, 222, 1);
@@ -8,7 +8,11 @@ mixin ColorMixin {
   static const Color green = Color.fromRGBO(67, 181, 22, 1);
   static const Color brown = Color.fromRGBO(181, 78, 22, 1);
 
-  setStationColor(String type, String lineName) {
+  //   "assets/images/wienerlinien-bus.jpg"
+  // "image": "assets/images/wienerlinien-ubahn.jpg
+  // "image": "assets/images/flexity-nacht-header.jpg"
+
+  setTypeColor(String type, String lineName) {
     switch (type) {
       case "ptBus":
         return blue;
@@ -40,6 +44,23 @@ mixin ColorMixin {
         break;
       default:
         return blue;
+        break;
+    }
+  }
+
+  setTypeImage(String type) {
+    switch (type) {
+      case "ptBus":
+        return "assets/images/wienerlinien-bus.jpg";
+        break;
+      case "ptTram":
+        return "assets/images/flexity.jpg";
+        break;
+      case "ptMetro":
+        return "assets/images/wienerlinien-ubahn.jpg";
+        break;
+      default:
+        return "assets/images/wienerlinien-bus.jpg";
         break;
     }
   }

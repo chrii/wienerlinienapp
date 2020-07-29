@@ -25,6 +25,7 @@ class LineDetails {
   String type;
   List<Departures> departures;
   Color lineTypeColor;
+  String typeImage;
 
   LineDetails({
     @required this.barrierFree,
@@ -34,6 +35,7 @@ class LineDetails {
     @required this.towards,
     @required this.type,
     @required this.lineTypeColor,
+    @required this.typeImage,
   });
 }
 

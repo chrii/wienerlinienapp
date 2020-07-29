@@ -3,13 +3,13 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:location/location.dart';
-import 'package:wienerlinienapp/misc/color_mixin.dart';
+import 'package:wienerlinienapp/misc/type_specific_attributes.dart';
 import 'package:wienerlinienapp/misc/database.dart';
 import 'package:wienerlinienapp/models/station_model.dart';
 import 'package:http/http.dart' as http;
 import 'package:wienerlinienapp/models/station_request_body.dart';
 
-class WienerLinienMaindataProvider with ChangeNotifier, ColorMixin {
+class WienerLinienMaindataProvider with ChangeNotifier, TypeSpecificAttributes {
   List<StationModel> maindata;
   String rootUrl = "http://www.wienerlinien.at/ogd_realtime/";
 
@@ -120,6 +120,7 @@ class WienerLinienMaindataProvider with ChangeNotifier, ColorMixin {
                     DateTime.now().toString()),
               );
             }).toList();
+
             return LineDetails(
               departures: departure,
               barrierFree: line['barrierFree'],
@@ -127,7 +128,8 @@ class WienerLinienMaindataProvider with ChangeNotifier, ColorMixin {
               name: line['name'],
               towards: line['towards'],
               type: line['type'],
-              lineTypeColor: setStationColor(line["type"], line["name"]),
+              lineTypeColor: setTypeColor(line["type"], line["name"]),
+              typeImage: setTypeImage(line["type"]),
             );
           }).toList();
           return StationRequestBody(
@@ -191,7 +193,8 @@ class WienerLinienMaindataProvider with ChangeNotifier, ColorMixin {
             name: line['name'],
             towards: line['towards'],
             type: line['type'],
-            lineTypeColor: setStationColor(line["type"], line["name"]),
+            lineTypeColor: setTypeColor(line["type"], line["name"]),
+            typeImage: setTypeImage(line["type"]),
           );
         }).toList();
         return StationRequestBody(
@@ -208,10 +211,10 @@ class WienerLinienMaindataProvider with ChangeNotifier, ColorMixin {
               item.lineDetails.first.towards ==
                   station.lineDetails.first.towards);
 
-      notifyListeners();
       return singleLine;
     } catch (e) {
       print(e);
+      return null;
     }
   }
 }

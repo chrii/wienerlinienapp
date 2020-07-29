@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wienerlinienapp/misc/color_mixin.dart';
+import 'package:wienerlinienapp/misc/type_specific_attributes.dart';
 import 'package:wienerlinienapp/models/station_request_body.dart';
 import 'package:wienerlinienapp/models/station_model.dart';
 import 'package:wienerlinienapp/screens/more_information_screen.dart';
@@ -12,8 +12,9 @@ class SingleStationCard extends StatefulWidget {
   _SingleStationCard createState() => _SingleStationCard();
 }
 
-class _SingleStationCard extends State<SingleStationCard> with ColorMixin {
+class _SingleStationCard extends State<SingleStationCard> {
   bool _expanded = false;
+  DateTime timestamp = DateTime.now();
 
   _expansionTrigger() {
     setState(() => _expanded = !_expanded);
@@ -82,7 +83,8 @@ class _SingleStationCard extends State<SingleStationCard> with ColorMixin {
                   return Navigator.of(context)
                       .pushNamed(MoreInformationScreen.routeName, arguments: {
                     "stationLine": widget._stationData,
-                    "timestamp": DateTime.now(),
+                    "timestamp": timestamp,
+                    "timestampNow": DateTime.now(),
                   });
                 },
               ),
@@ -103,7 +105,7 @@ class SingleStationCardOffline extends StatefulWidget {
 }
 
 class _SingleStationCardOffline extends State<SingleStationCardOffline>
-    with ColorMixin {
+    with TypeSpecificAttributes {
   bool _expanded = false;
 
   _expansionTrigger() {
@@ -121,7 +123,7 @@ class _SingleStationCardOffline extends State<SingleStationCardOffline>
             subtitle: Text("Richtung -"),
             leading: CircleAvatar(
               backgroundColor:
-                  setStationColor("ptTram", widget._stationData.lineText),
+                  setTypeColor("ptTram", widget._stationData.lineText).color,
               child: Text(
                 widget._stationData.lineText,
                 style:

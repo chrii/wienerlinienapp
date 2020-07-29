@@ -1,7 +1,6 @@
 import 'package:csv/csv.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:sqflite/sqflite.dart';
-import 'package:wienerlinienapp/models/station_model.dart';
 
 class SqLiteDatabase {
   static Future<Database> database(String dbName) async {

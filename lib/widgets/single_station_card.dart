@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wienerlinienapp/misc/type_specific_attributes.dart';
+import 'package:wienerlinienapp/misc/type_specific_attributes_mixin.dart';
 import 'package:wienerlinienapp/models/station_request_body.dart';
 import 'package:wienerlinienapp/models/station_model.dart';
 import 'package:wienerlinienapp/screens/more_information_screen.dart';

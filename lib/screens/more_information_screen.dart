@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:wienerlinienapp/misc/type_specific_attributes.dart';
+import 'package:wienerlinienapp/misc/type_specific_attributes_mixin.dart';
 import 'package:wienerlinienapp/misc/wienerlinien_maindata_provider.dart';
 import 'package:wienerlinienapp/models/station_request_body.dart';
 import 'package:wienerlinienapp/widgets/single_station_card.dart';
@@ -112,7 +112,7 @@ class _MoreInformationScreenState extends State<MoreInformationScreen> {
                 ),
                 Container(
                   child: Expanded(
-                    flex: 5,
+                    flex: 6,
                     child: ListView(
                       children: <Widget>[
                         ListTile(
@@ -122,43 +122,8 @@ class _MoreInformationScreenState extends State<MoreInformationScreen> {
                           trailing: Icon(Icons.compare_arrows),
                         ),
                         Divider(),
-                        ButtonBar(
-                          alignment: MainAxisAlignment.spaceEvenly,
-                          children: <Widget>[
-                            IconButton(
-                              disabledColor: Colors.black,
-                              icon: Icon(Icons.accessible),
-                              onPressed: null,
-                              iconSize: 30.0,
-                            ),
-                            Divider(),
-                            IconButton(
-                              disabledColor: Colors.black,
-                              icon: Icon(Icons.offline_bolt),
-                              onPressed: null,
-                              iconSize: 30.0,
-                            ),
-                            Divider(),
-                            IconButton(
-                              disabledColor: Colors.black,
-                              icon: Icon(Icons.timer),
-                              onPressed: null,
-                              color: Colors.black,
-                              iconSize: 30.0,
-                            ),
-                          ],
-                        ),
+                        DetailedTabMenu(_stationRequestBody),
                         Divider(),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: <Widget>[
-                            ..._stationRequestBody.lineDetails.first.departures
-                                .map(
-                                  (e) => TimeBox(e.countdown.toString()),
-                                )
-                                .take(3),
-                          ],
-                        ),
                       ],
                     ),
                   ),
@@ -196,3 +161,96 @@ class _MoreInformationScreenState extends State<MoreInformationScreen> {
     );
   }
 }
+
+class DetailedTabMenu extends StatefulWidget {
+  final StationRequestBody _stationRequestBody;
+
+  DetailedTabMenu(this._stationRequestBody);
+
+  _DetailedTabMenuState createState() => _DetailedTabMenuState();
+}
+
+class _DetailedTabMenuState extends State<DetailedTabMenu> {
+  Widget build(BuildContext context) {
+    return DefaultTabController(
+      length: 2,
+      initialIndex: 0,
+      child: SizedBox(
+        height: 300,
+        width: double.infinity,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Flexible(
+              flex: 0,
+              child: Container(
+                height: 40,
+                width: double.infinity,
+                child: TabBar(
+                  labelColor: Colors.black38,
+                  indicatorColor: widget
+                      ._stationRequestBody.lineDetails.first.lineTypeColor,
+                  tabs: <Widget>[
+                    Tab(
+                      icon: Icon(Icons.timer),
+                    ),
+                    Tab(
+                      icon: Icon(Icons.accessible),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Expanded(
+              child: TabBarView(
+                children: <Widget>[
+                  Container(
+                    padding: EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        ...widget
+                            ._stationRequestBody.lineDetails.first.departures
+                            .map(
+                              (e) => TimeBox(e.countdown.toString()),
+                            )
+                            .take(3),
+                      ],
+                    ),
+                  ),
+                  Center(
+                    child: Text("test"),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+// IconButton(
+//   disabledColor: Colors.black,
+//   icon: Icon(Icons.accessible),
+//   onPressed: null,
+//   iconSize: 30.0,
+// ),
+// Divider(),
+// IconButton(
+//   disabledColor: Colors.black,
+//   icon: Icon(Icons.offline_bolt),
+//   onPressed: null,
+//   iconSize: 30.0,
+// ),
+// Divider(),
+// IconButton(
+//   disabledColor: Colors.black,
+//   icon: Icon(Icons.timer),
+//   onPressed: null,
+//   color: Colors.black,
+//   iconSize: 30.0,
+// ),

@@ -3,7 +3,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:location/location.dart';
-import 'package:wienerlinienapp/misc/type_specific_attributes.dart';
+import 'package:wienerlinienapp/misc/type_specific_attributes_mixin.dart';
 import 'package:wienerlinienapp/misc/database.dart';
 import 'package:wienerlinienapp/models/station_model.dart';
 import 'package:http/http.dart' as http;

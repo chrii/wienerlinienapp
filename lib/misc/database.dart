@@ -1,7 +1,7 @@
 import 'package:csv/csv.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:sqflite/sqflite.dart';
+import 'package:wienerlinienapp/models/station_model.dart';
 
 class SqLiteDatabase {
   static Future<Database> database(String dbName) async {
@@ -131,7 +131,8 @@ class SqLiteDatabase {
       h.Longitude, h.Latitude
       FROM wienerlinien_ogd_fahrwegverlaeufe l 
       INNER JOIN wienerlinien_ogd_linien f ON l.LineID = f.LineID 
-      INNER JOIN wienerlinien_ogd_haltepunkte h ON l.StopID = h.StopID 
+      INNER JOIN wienerlinien_ogd_haltepunkte h ON l.StopID = h.StopID
+      WHERE h.StopText = "Johann-Nepomuk-Berger-Platz" AND f.LineText = "2"
           ''');
 
       final haltepunkteMap = ignoreUnusedIDs(haltepunkte);
@@ -141,8 +142,29 @@ class SqLiteDatabase {
     }
   }
 
+  Future<List<String>> getStationsFromLineAndStop(
+      String line, String stop) async {
+    try {
+      final Database db = await SqLiteDatabase.database(databaseName);
+      final List<Map<String, dynamic>> response = await db.rawQuery('''
+      SELECT h.StopID
+      FROM wienerlinien_ogd_fahrwegverlaeufe l 
+      INNER JOIN wienerlinien_ogd_linien f ON l.LineID = f.LineID 
+      INNER JOIN wienerlinien_ogd_haltepunkte h ON l.StopID = h.StopID
+      WHERE h.StopText = "$stop" AND f.LineText = "$line"
+      ''');
+      return response.map<String>((item) => item['StopID']).toSet().toList();
+    } catch (e) {
+      print(e);
+      return null;
+    }
+  }
+
   ignoreUnusedIDs(List blob) {
-    final lineIDs = blob.map((element) => element["LineID"]).toSet().toList();
+    final List<String> lineIDs = blob
+        .map<String>((element) => element["LineID"].toString())
+        .toSet()
+        .toList();
     final haltepunkteMap = lineIDs
         .map((item) => blob.firstWhere((element) => item == element['LineID']))
         .toList();

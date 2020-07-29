@@ -1,13 +1,15 @@
 import 'dart:convert' as json;
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:location/location.dart';
+import 'package:wienerlinienapp/misc/color_mixin.dart';
 import 'package:wienerlinienapp/misc/database.dart';
 import 'package:wienerlinienapp/models/station_model.dart';
 import 'package:http/http.dart' as http;
 import 'package:wienerlinienapp/models/station_request_body.dart';
 
-class WienerLinienMaindataProvider with ChangeNotifier {
+class WienerLinienMaindataProvider with ChangeNotifier, ColorMixin {
   List<StationModel> maindata;
   String rootUrl = "http://www.wienerlinien.at/ogd_realtime/";
 
@@ -50,7 +52,6 @@ class WienerLinienMaindataProvider with ChangeNotifier {
         final result = await db.fetchCoordinateRangeFromDatabase(
             actualLocation.latitude, actualLocation.longitude);
         final mapToModel = result.map((item) {
-          print(item["LineText"]);
           return StationModel(
             lineID: item["LineID"],
             lineText: item["LineText"],
@@ -78,8 +79,7 @@ class WienerLinienMaindataProvider with ChangeNotifier {
     return null;
   }
 
-  Future<void> fetchStopIDsFromAPI(List<String> stopList,
-      {listen: true}) async {
+  String buildUrl(List<String> stopList) {
     final String url = rootUrl + "monitor?";
     String clampedStopIDs = "";
     stopList.forEach((element) {
@@ -87,7 +87,12 @@ class WienerLinienMaindataProvider with ChangeNotifier {
     });
     final finalUrl = url + clampedStopIDs;
     print("Build URL: " + finalUrl);
+    return finalUrl;
+  }
 
+  Future<void> fetchStopIDsFromAPI(List<String> stopList,
+      {listen: true}) async {
+    final finalUrl = buildUrl(stopList);
     try {
       final http.Response response = await http.get(finalUrl);
       if (response.statusCode == 200) {
@@ -122,11 +127,12 @@ class WienerLinienMaindataProvider with ChangeNotifier {
               name: line['name'],
               towards: line['towards'],
               type: line['type'],
+              lineTypeColor: setStationColor(line["type"], line["name"]),
             );
           }).toList();
           return StationRequestBody(
             lineDetails: line,
-            idName: properties['idName'],
+            idName: properties['name'],
             stationTitle: properties['title'],
             type: properties['type'],
             lineType: lineType,
@@ -143,19 +149,69 @@ class WienerLinienMaindataProvider with ChangeNotifier {
     }
   }
 
-  String fetchFromAPIWithLineNumber(StationRequestBody station) {
-    // print(station.stationTitle);
-    // print(station.lineDetails.first.name);
-    // print(nearbyStations.first.stopText);
-    // print(nearbyStations.first.lineText);
-    final List<StationModel> stopId =
-        nearbyStations.where((stat) => stat.stopText == "9").toList();
-    print(stopId.length);
-    // print(stopId[0].stopID);
-    // print(stopId[1].stopID);
-    // print(stopId[2].stopID);
-    // print(stopId[3].stopID);
+  Future<StationRequestBody> fetchFromAPIWithLineNumber(
+      StationRequestBody station) async {
+    final db = SqLiteDatabase("test");
+    try {
+      final query = await db.getStationsFromLineAndStop(
+          station.lineDetails.first.name, station.stationTitle);
+      final url = buildUrl(query);
 
-    return "";
+      final response = await http.get(url);
+      if (!(response.statusCode <= 400)) {
+        throw new Exception("Error code: ${response.statusCode}");
+      }
+      final parsedJson = json.jsonDecode(response.body);
+      final List<StationRequestBody> stationRequestBody = parsedJson['data']
+              ['monitors']
+          .map<StationRequestBody>((monitorItems) {
+        final properties = monitorItems['locationStop']['properties'];
+        final lineType = properties['type'];
+        final List<LineDetails> line =
+            monitorItems['lines'].map<LineDetails>((line) {
+          final List<Departures> departure =
+              line['departures']['departure'].map<Departures>((dep) {
+            if (dep['departureTime'].length <= 0) {
+              return Departures(
+                  countdown: 0,
+                  timePlanned: DateTime.now(),
+                  timeReal: DateTime.now());
+            }
+            return Departures(
+              countdown: dep['departureTime']['countdown'],
+              timePlanned: DateTime.parse(dep['departureTime']['timePlanned']),
+              timeReal: DateTime.parse(dep['departureTime']['timeReal'] ??
+                  DateTime.now().toString()),
+            );
+          }).toList();
+          return LineDetails(
+            departures: departure,
+            barrierFree: line['barrierFree'],
+            direction: line['direction'],
+            name: line['name'],
+            towards: line['towards'],
+            type: line['type'],
+            lineTypeColor: setStationColor(line["type"], line["name"]),
+          );
+        }).toList();
+        return StationRequestBody(
+          lineDetails: line,
+          idName: properties['name'],
+          stationTitle: properties['title'],
+          type: properties['type'],
+          lineType: lineType,
+        );
+      }).toList();
+      final StationRequestBody singleLine = stationRequestBody.firstWhere(
+          (item) =>
+              item.lineDetails.first.name == station.lineDetails.first.name &&
+              item.lineDetails.first.towards ==
+                  station.lineDetails.first.towards);
+
+      notifyListeners();
+      return singleLine;
+    } catch (e) {
+      print(e);
+    }
   }
 }

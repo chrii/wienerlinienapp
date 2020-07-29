@@ -22,19 +22,19 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+    return ChangeNotifierProvider(
+      create: (ctx) => WienerLinienMaindataProvider(),
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+        ),
+        home: InitWidget(),
+        routes: {
+          MoreInformationScreen.routeName: (ctx) => MoreInformationScreen(),
+        },
       ),
-      home: ChangeNotifierProvider(
-        create: (ctx) => WienerLinienMaindataProvider(),
-        child: InitWidget(),
-      ),
-      routes: {
-        MoreInformationScreen.routeName: (ctx) => MoreInformationScreen(),
-      },
     );
   }
 }

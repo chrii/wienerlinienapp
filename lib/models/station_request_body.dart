@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 
 class StationRequestBody {
   String idName;
@@ -23,6 +24,7 @@ class LineDetails {
   bool barrierFree;
   String type;
   List<Departures> departures;
+  Color lineTypeColor;
 
   LineDetails({
     @required this.barrierFree,
@@ -31,6 +33,7 @@ class LineDetails {
     @required this.name,
     @required this.towards,
     @required this.type,
+    @required this.lineTypeColor,
   });
 }
 

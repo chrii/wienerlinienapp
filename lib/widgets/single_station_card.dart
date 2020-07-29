@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:wienerlinienapp/misc/color_mixin.dart';
-import 'package:wienerlinienapp/misc/wienerlinien_maindata_provider.dart';
 import 'package:wienerlinienapp/models/station_request_body.dart';
 import 'package:wienerlinienapp/models/station_model.dart';
 import 'package:wienerlinienapp/screens/more_information_screen.dart';
@@ -23,7 +21,6 @@ class _SingleStationCard extends State<SingleStationCard> with ColorMixin {
 
   @override
   Widget build(BuildContext context) {
-    //print(widget._stationData.toString());
     return Card(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -33,9 +30,8 @@ class _SingleStationCard extends State<SingleStationCard> with ColorMixin {
             subtitle: Text(
                 "Richtung ${widget._stationData.lineDetails.first.towards ?? "-"}"),
             leading: CircleAvatar(
-              backgroundColor: setStationColor(
-                  widget._stationData.lineDetails.first.type ?? "ptTram",
-                  widget._stationData.lineDetails.first.name),
+              backgroundColor:
+                  widget._stationData.lineDetails.first.lineTypeColor,
               child: Text(
                 widget._stationData.lineDetails.first.name,
                 style:
@@ -83,12 +79,9 @@ class _SingleStationCard extends State<SingleStationCard> with ColorMixin {
                 label: Text("More Info"),
                 // TODO: PARAMS ANPASSEN
                 onPressed: () {
-                  Provider.of<WienerLinienMaindataProvider>(context,
-                          listen: false)
-                      .fetchFromAPIWithLineNumber(widget._stationData);
                   return Navigator.of(context)
                       .pushNamed(MoreInformationScreen.routeName, arguments: {
-                    "stopID": [],
+                    "stationLine": widget._stationData,
                     "timestamp": DateTime.now(),
                   });
                 },

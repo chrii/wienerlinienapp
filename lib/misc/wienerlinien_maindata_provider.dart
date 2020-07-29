@@ -49,17 +49,18 @@ class WienerLinienMaindataProvider with ChangeNotifier {
       if (access == PermissionStatus.granted) {
         final result = await db.fetchCoordinateRangeFromDatabase(
             actualLocation.latitude, actualLocation.longitude);
-        final mapToModel = result
-            .map((item) => StationModel(
-                  lineID: item["LineID"],
-                  lineText: item["LineText"],
-                  stopID: item["StopID"],
-                  meansOfTransport: item["MeansOfTransport"],
-                  stopText: item["StopText"],
-                  longitude: double.parse(item["Longitude"]),
-                  latitude: double.parse(item["Latitude"]),
-                ))
-            .toList();
+        final mapToModel = result.map((item) {
+          print(item["LineText"]);
+          return StationModel(
+            lineID: item["LineID"],
+            lineText: item["LineText"],
+            stopID: item["StopID"],
+            meansOfTransport: item["MeansOfTransport"],
+            stopText: item["StopText"],
+            longitude: double.parse(item["Longitude"]),
+            latitude: double.parse(item["Latitude"]),
+          );
+        }).toList();
         nearbyStations = mapToModel;
         await fetchStopIDsFromAPI(mapToModel.map((e) => e.stopID).toList(),
             listen: false);
@@ -79,9 +80,6 @@ class WienerLinienMaindataProvider with ChangeNotifier {
 
   Future<void> fetchStopIDsFromAPI(List<String> stopList,
       {listen: true}) async {
-    if (stopList.contains("4213")) {
-      stopList.remove("4213");
-    }
     final String url = rootUrl + "monitor?";
     String clampedStopIDs = "";
     stopList.forEach((element) {
@@ -98,7 +96,7 @@ class WienerLinienMaindataProvider with ChangeNotifier {
         final List<StationRequestBody> wrapped = parsedJson['data']['monitors']
             .map<StationRequestBody>((monitorItems) {
           final properties = monitorItems['locationStop']['properties'];
-          final lineType = monitorItems['type'];
+          final lineType = properties['type'];
           final List<LineDetails> line =
               monitorItems['lines'].map<LineDetails>((line) {
             final List<Departures> departure =
@@ -143,5 +141,21 @@ class WienerLinienMaindataProvider with ChangeNotifier {
     } finally {
       if (listen) notifyListeners();
     }
+  }
+
+  String fetchFromAPIWithLineNumber(StationRequestBody station) {
+    // print(station.stationTitle);
+    // print(station.lineDetails.first.name);
+    // print(nearbyStations.first.stopText);
+    // print(nearbyStations.first.lineText);
+    final List<StationModel> stopId =
+        nearbyStations.where((stat) => stat.stopText == "9").toList();
+    print(stopId.length);
+    // print(stopId[0].stopID);
+    // print(stopId[1].stopID);
+    // print(stopId[2].stopID);
+    // print(stopId[3].stopID);
+
+    return "";
   }
 }

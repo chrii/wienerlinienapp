@@ -54,7 +54,7 @@ mixin TypeSpecificAttributes {
         return "assets/images/wienerlinien-bus.jpg";
         break;
       case "ptTram":
-        return "assets/images/flexity.jpg";
+        return "assets/images/flexity-nacht-header.jpg";
         break;
       case "ptMetro":
         return "assets/images/wienerlinien-ubahn.jpg";

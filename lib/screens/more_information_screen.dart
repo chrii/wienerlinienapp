@@ -63,15 +63,21 @@ class _MoreInformationScreenState extends State<MoreInformationScreen> {
               children: <Widget>[
                 Flexible(
                   fit: FlexFit.tight,
-                  flex: 0,
+                  flex: 2,
                   child: Container(
-                    //width: double.infinity,^
+                    width: double.infinity,
                     child: Stack(
                       alignment: Alignment.bottomLeft,
                       children: [
-                        Image.asset(
-                          _stationRequestBody.lineDetails.first.typeImage,
-                          fit: BoxFit.cover,
+                        Container(
+                          width: double.infinity,
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage(_stationRequestBody
+                                    .lineDetails.first.typeImage),
+                                fit: BoxFit.fill),
+                          ),
                         ),
                         Positioned(
                           bottom: 5.0,
@@ -106,7 +112,7 @@ class _MoreInformationScreenState extends State<MoreInformationScreen> {
                 ),
                 Container(
                   child: Expanded(
-                    flex: 9,
+                    flex: 5,
                     child: ListView(
                       children: <Widget>[
                         ListTile(
@@ -157,37 +163,33 @@ class _MoreInformationScreenState extends State<MoreInformationScreen> {
                     ),
                   ),
                 ),
-                Flexible(
-                  flex: 0,
-                  fit: FlexFit.loose,
-                  child: ButtonBar(
-                    alignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      FlatButton.icon(
-                        onPressed: () {},
-                        icon: Icon(Icons.arrow_left),
-                        label: Text("Vorige"),
-                        textColor: Colors.black87,
-                      ),
-                      IconButton(
-                        onPressed: () async {
-                          final res = await Provider.of<
-                                      WienerLinienMaindataProvider>(context,
-                                  listen: false)
-                              .fetchFromAPIWithLineNumber(_stationRequestBody);
-                          setState(() => _stationRequestBody = res);
-                          _refreshing = false;
-                        },
-                        icon: Icon(Icons.refresh),
-                      ),
-                      FlatButton.icon(
-                        onPressed: () {},
-                        icon: Icon(Icons.arrow_right),
-                        label: Text("Nächste"),
-                        textColor: Colors.black87,
-                      ),
-                    ],
-                  ),
+                ButtonBar(
+                  alignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    FlatButton.icon(
+                      onPressed: () {},
+                      icon: Icon(Icons.arrow_left),
+                      label: Text("Vorige"),
+                      textColor: Colors.black87,
+                    ),
+                    IconButton(
+                      onPressed: () async {
+                        final res = await Provider.of<
+                                    WienerLinienMaindataProvider>(context,
+                                listen: false)
+                            .fetchFromAPIWithLineNumber(_stationRequestBody);
+                        setState(() => _stationRequestBody = res);
+                        _refreshing = false;
+                      },
+                      icon: Icon(Icons.refresh),
+                    ),
+                    FlatButton.icon(
+                      onPressed: () {},
+                      icon: Icon(Icons.arrow_right),
+                      label: Text("Nächste"),
+                      textColor: Colors.black87,
+                    ),
+                  ],
                 ),
               ],
             ),

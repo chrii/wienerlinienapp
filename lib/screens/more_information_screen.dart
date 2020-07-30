@@ -12,14 +12,7 @@ class MoreInformationScreen extends StatefulWidget with TypeSpecificAttributes {
 
 class _MoreInformationScreenState extends State<MoreInformationScreen> {
   StationRequestBody _stationRequestBody;
-  DateTime _timer = DateTime.now();
   bool _refreshing = true;
-
-  @override
-  void initState() {
-    _timer = DateTime.now();
-    super.initState();
-  }
 
   void checkToRefreshData() async {
     final args =
@@ -256,9 +249,7 @@ class _DetailedTabMenuState extends State<DetailedTabMenu> {
                               child: Text("Keine Störungen aufgezeichnet"),
                             );
                           return Center(
-                            child: Text(snapshot.data.first["title"] +
-                                ",  " +
-                                snapshot.data.first["attributes"]["status"]),
+                            child: Text(snapshot.data.first["title"] + ",  "),
                           );
                         },
                       );
@@ -273,25 +264,3 @@ class _DetailedTabMenuState extends State<DetailedTabMenu> {
     );
   }
 }
-
-// IconButton(
-//   disabledColor: Colors.black,
-//   icon: Icon(Icons.accessible),
-//   onPressed: null,
-//   iconSize: 30.0,
-// ),
-// Divider(),
-// IconButton(
-//   disabledColor: Colors.black,
-//   icon: Icon(Icons.offline_bolt),
-//   onPressed: null,
-//   iconSize: 30.0,
-// ),
-// Divider(),
-// IconButton(
-//   disabledColor: Colors.black,
-//   icon: Icon(Icons.timer),
-//   onPressed: null,
-//   color: Colors.black,
-//   iconSize: 30.0,
-// ),

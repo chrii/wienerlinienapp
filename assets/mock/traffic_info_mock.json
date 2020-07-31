@@ -1,0 +1,1303 @@
+{
+  "data": {
+    "trafficInfos": [
+      {
+        "refTrafficInfoCategoryId": 1,
+        "name": "ftazS_85",
+        "title": "Volkstheater",
+        "description": "Zwischengeschoss - Ausgang Volksgarten",
+        "attributes": {
+          "ausBis": "28.08.2020 05:15",
+          "reason": "Aufzugsanlage ist wegen Bauarbeiten bis Ende 31.08.2020 außer Betrieb!",
+          "relatedLines": ["U2", "U3"],
+          "station": "Volkstheater",
+          "ausVon": "28.08.2020 01:15",
+          "location": "Zwischengeschoss - Ausgang Volksgarten",
+          "towards": "U2 beide Richtungen, U3 beide Richtungen",
+          "relatedStops": [4206, 4209, 4908, 4909],
+          "status": "außer Betrieb"
+        },
+        "time": {
+          "start": "2020-08-28T01:15:00.000+0200",
+          "end": "2020-08-28T05:15:00.000+0200"
+        },
+        "relatedLines": ["U2", "U3"],
+        "relatedStops": [4206, 4209, 4908, 4909]
+      },
+      {
+        "refTrafficInfoCategoryId": 1,
+        "name": "ftazS_114",
+        "title": "Schwedenplatz",
+        "description": "U1 Mittelbahnsteig - Zwischengeschoss Zugang U4",
+        "attributes": {
+          "reason": "AUFZUGSERNEUERUNG Voraussichtlich bis 22.08.2020 außer Betrieb!",
+          "relatedLines": ["U1"],
+          "station": "Schwedenplatz",
+          "location": "U1 Mittelbahnsteig - Zwischengeschoss Zugang U4",
+          "towards": "U1 beide Richtungen",
+          "relatedStops": [4113, 4116],
+          "status": "außer Betrieb"
+        },
+        "relatedLines": ["U1"],
+        "relatedStops": [4113, 4116]
+      },
+      {
+        "refTrafficInfoCategoryId": 1,
+        "name": "ftazS_211",
+        "title": "Bahnhof Meidling",
+        "description": "Zwischengeschoss - Ausgang Wilhelmstraße",
+        "attributes": {
+          "ausBis": "04.08.2020 05:15",
+          "reason": "Störung bekannt, erforderliche Maßnahmen wurden eingeleitet.",
+          "relatedLines": ["U6"],
+          "station": "Bahnhof Meidling",
+          "ausVon": "04.08.2020 01:15",
+          "location": "Zwischengeschoss - Ausgang Wilhelmstraße",
+          "towards": "U6 beide Richtungen",
+          "relatedStops": [4614, 4615],
+          "status": "außer Betrieb"
+        },
+        "time": {
+          "start": "2020-08-04T01:15:00.000+0200",
+          "end": "2020-08-04T05:15:00.000+0200"
+        },
+        "relatedLines": ["U6"],
+        "relatedStops": [4614, 4615]
+      },
+      {
+        "refTrafficInfoCategoryId": 1,
+        "name": "ftazS_370",
+        "title": "Zieglergasse",
+        "description": "Zwischengeschoss - Ausgang Otto Bauer Gasse",
+        "attributes": {
+          "ausBis": "19.08.2020 00:30",
+          "reason": "Voraussichtlich bis 03.08.2020 außer Betrieb! Auf Ersatzteile wird gewartet.",
+          "relatedLines": ["U3"],
+          "station": "Zieglergasse",
+          "ausVon": "18.08.2020 20:30",
+          "location": "Zwischengeschoss - Ausgang Otto Bauer Gasse",
+          "towards": "U3 beide Richtungen",
+          "relatedStops": [4919, 4922],
+          "status": "außer Betrieb"
+        },
+        "time": {
+          "start": "2020-08-18T20:30:00.000+0200",
+          "end": "2020-08-19T00:30:00.000+0200"
+        },
+        "relatedLines": ["U3"],
+        "relatedStops": [4919, 4922]
+      },
+      {
+        "refTrafficInfoCategoryId": 1,
+        "name": "ftazS_566",
+        "title": "Pilgramgasse",
+        "description": "Fahrtrichtung U4 Heiligenstadt - Ausgang Ramperstorffergasse",
+        "attributes": {
+          "reason": "Aufzugsanlage ist wegen Bauarbeiten bis Ende 31.12.2027 außer Betrieb!",
+          "relatedLines": ["U4"],
+          "station": "Pilgramgasse",
+          "location": "Fahrtrichtung U4 Heiligenstadt - Ausgang Ramperstorffergasse",
+          "towards": "U4 Heiligenstadt",
+          "relatedStops": [4417],
+          "status": "außer Betrieb"
+        },
+        "relatedLines": ["U4"],
+        "relatedStops": [4417]
+      },
+      {
+        "refTrafficInfoCategoryId": 1,
+        "name": "ftazS_603",
+        "title": "Ottakring",
+        "description": "U3 Bahnsteig Richtung Simmering - Ausgang Thaliastraße",
+        "attributes": {
+          "ausBis": "14.08.2020 00:45",
+          "reason": "Aufzug ist wegen Bauarbeiten bis Ende 31.08.2020 außer Betrieb!",
+          "relatedLines": ["U3"],
+          "station": "Ottakring",
+          "ausVon": "13.08.2020 20:45",
+          "location": "U3 Bahnsteig Richtung Simmering - Ausgang Thaliastraße",
+          "towards": "U3 Simmering",
+          "relatedStops": [4931],
+          "status": "außer Betrieb"
+        },
+        "time": {
+          "start": "2020-08-13T20:45:00.000+0200",
+          "end": "2020-08-14T00:45:00.000+0200"
+        },
+        "relatedLines": ["U3"],
+        "relatedStops": [4931]
+      },
+      {
+        "refTrafficInfoCategoryId": 1,
+        "name": "ftazS_606",
+        "title": "Ottakring",
+        "description": "U3 Bahnsteig Richtung Simmering - Ausgang Koppstraße",
+        "attributes": {
+          "ausBis": "14.08.2020 05:15",
+          "reason": "Aufzug ist wegen Bauarbeiten bis Ende 31.08.2020 außer Betrieb!",
+          "relatedLines": ["U3"],
+          "station": "Ottakring",
+          "ausVon": "14.08.2020 01:15",
+          "location": "U3 Bahnsteig Richtung Simmering - Ausgang Koppstraße",
+          "towards": "U3 Simmering",
+          "relatedStops": [4931],
+          "status": "außer Betrieb"
+        },
+        "time": {
+          "start": "2020-08-14T01:15:00.000+0200",
+          "end": "2020-08-14T05:15:00.000+0200"
+        },
+        "relatedLines": ["U3"],
+        "relatedStops": [4931]
+      },
+      {
+        "refTrafficInfoCategoryId": 1,
+        "name": "ftazS_1031285",
+        "title": "Donauspital",
+        "description": "U2 Mittelbahnsteig - Ausgang Buchsgasse",
+        "attributes": {
+          "ausBis": "24.08.2020 06:00",
+          "reason": "An der Instandsetzung wird bereits gearbeitet.",
+          "relatedLines": ["U2"],
+          "station": "Donauspital",
+          "ausVon": "24.08.2020 22:00",
+          "location": "U2 Mittelbahnsteig - Ausgang Buchsgasse",
+          "towards": "U2 beide Richtungen",
+          "relatedStops": [4252, 4271],
+          "status": "außer Betrieb"
+        },
+        "time": {
+          "start": "2020-08-24T22:00:00.000+0200",
+          "end": "2020-08-24T06:00:00.000+0200"
+        },
+        "relatedLines": ["U2"],
+        "relatedStops": [4252, 4271]
+      },
+      {
+        "refTrafficInfoCategoryId": 1,
+        "name": "ftazS_1031271",
+        "title": "Donaustadtbrücke",
+        "description": "U2 Bahnsteig Richtung Karlsplatz - Ausgang Kaisermühlendamm",
+        "attributes": {
+          "ausBis": "14.08.2020 00:45",
+          "reason": "Voraussichtlich bis 03.08.2020 außer Betrieb! Auf Ersatzteile wird gewartet.",
+          "relatedLines": ["U2"],
+          "station": "Donaustadtbrücke",
+          "ausVon": "13.08.2020 20:45",
+          "location": "U2 Bahnsteig Richtung Karlsplatz - Ausgang Kaisermühlendamm",
+          "towards": "U2 Karlsplatz",
+          "relatedStops": [4255],
+          "status": "außer Betrieb"
+        },
+        "time": {
+          "start": "2020-08-13T20:45:00.000+0200",
+          "end": "2020-08-14T00:45:00.000+0200"
+        },
+        "relatedLines": ["U2"],
+        "relatedStops": [4255]
+      },
+      {
+        "refTrafficInfoCategoryId": 1,
+        "name": "ftazS_1031284",
+        "title": "Donauspital",
+        "description": "U2 Mittelbahnsteig - Ausgang Zschokkegasse",
+        "attributes": {
+          "reason": "Voraussichtlich bis 07.08.2020 außer Betrieb! Auf Ersatzteile wird gewartet.",
+          "relatedLines": ["U2"],
+          "station": "Donauspital",
+          "location": "U2 Mittelbahnsteig - Ausgang Zschokkegasse",
+          "towards": "U2 beide Richtungen",
+          "relatedStops": [4252, 4271],
+          "status": "außer Betrieb"
+        },
+        "relatedLines": ["U2"],
+        "relatedStops": [4252, 4271]
+      },
+      {
+        "refTrafficInfoCategoryId": 2,
+        "name": "bms_202007270002",
+        "priority": "1",
+        "owner": "WL",
+        "title": "5 : Bauarbeiten",
+        "description": "Wegen Gleisbauarbeiten wird die Linie 5 in beiden Fahrtrichtungen zwischen Praterstern und Am Tabor über die Heinestraße umgeleitet. Die Haltestelle Nordbahnstraße kann dadurch nicht eingehalten werden. Die Bauarbeiten dauern bis inklusive 16.08.2020.",
+        "time": {
+          "start": "2020-07-27T09:35:59.000+0200",
+          "end": "2020-08-17T01:00:00.000+0200"
+        },
+        "attributes": { "relatedLineTypes": { "5": "ptTram" } },
+        "relatedLines": ["5"],
+        "relatedStops": [
+          211,
+          250,
+          272,
+          312,
+          313,
+          328,
+          329,
+          330,
+          345,
+          348,
+          349,
+          350,
+          351,
+          352,
+          353,
+          354,
+          355,
+          356,
+          357,
+          358,
+          359,
+          360,
+          361,
+          362,
+          363,
+          364,
+          366,
+          367,
+          368,
+          370,
+          373,
+          374,
+          375,
+          376,
+          377,
+          378,
+          379,
+          380,
+          381,
+          382,
+          383,
+          384,
+          385,
+          386,
+          387,
+          388,
+          389,
+          390,
+          483,
+          1549,
+          1560,
+          1561,
+          1562,
+          2157,
+          2167,
+          2223,
+          2224,
+          3199,
+          7008,
+          7531
+        ]
+      },
+      {
+        "refTrafficInfoCategoryId": 2,
+        "name": "bms_202001120017",
+        "priority": "1",
+        "owner": "WL",
+        "title": "13A : Bauarbeiten",
+        "description": "Wegen der Umgestaltung Neubaugasse ist ein Betrieb der Linie 13A bis Herbst 2020 zwischen Neubaugasse U und Burggasse/Neubaugasse nicht möglich. Ab Burggasse/Neubaugasse werden die Busse zum Volkstheater U umgeleitet. Weichen Sie ersatzweise auf die Linien U3, U4, 49 und 48A aus. Beachten Sie, dass in der Station Pilgramgasse nur eine Rampe und Treppen zur Verfügung stehen. Due to construction work the bus line 13A can not operate between Neubaugasse U and Burggasse/Neubaugasse until autumn 2020. Please use the lines U3, U4, 49 and 48A instead. Please note that only a ramp and stairs are available in the station Pilgramgasse.",
+        "time": {
+          "start": "2020-01-13T05:15:00.000+0200",
+          "end": "2020-08-13T23:59:00.000+0200"
+        },
+        "attributes": { "relatedLineTypes": { "13A": "ptBusCity" } },
+        "relatedLines": ["13A"],
+        "relatedStops": [
+          39,
+          40,
+          660,
+          661,
+          662,
+          663,
+          668,
+          669,
+          670,
+          671,
+          672,
+          673,
+          674,
+          675,
+          676,
+          682,
+          691,
+          692,
+          693,
+          694,
+          695,
+          696,
+          697,
+          698,
+          699,
+          705,
+          706,
+          707,
+          708,
+          773,
+          1401,
+          1435,
+          1482,
+          5423,
+          5430
+        ]
+      },
+      {
+        "refTrafficInfoCategoryId": 2,
+        "name": "bms_202007210012",
+        "priority": "1",
+        "owner": "WL",
+        "title": "49, 47A , N49 : Bauarbeiten",
+        "description": "Wegen Bauarbeiten fährt die Linie 49 derzeit nur zwischen Ring, Volkstheater U und Breitensee S. Als Ersatz wird die Linie 52 ab Baumgarten nach Hütteldorf, Bujattigasse verlängert. Die Linie 47A fährt nur zwischen Baumgartner Höhe und Tinterstraße, Baumgartner Friedhof, die Busse werden nach Hütteldorf S U umgeleitet. Die Linie N49 wird in beiden Fahrtrichtungen zwischen Hütteldorfer Straße, Lützowgasse und Baumgarten über die Linzer Straße umgeleitet. Die Bauarbeiten dauern voraussichtlich bis einschließlich 06.09.2020.",
+        "time": {
+          "start": "2020-07-21T11:55:00.000+0200",
+          "end": "2020-09-07T01:59:00.000+0200"
+        },
+        "attributes": {
+          "relatedLineTypes": {
+            "49": "ptTram",
+            " 47A": "ptBusCity",
+            " N49": "ptBusNight"
+          }
+        },
+        "relatedLines": ["49", "47A", "N49"],
+        "relatedStops": [
+          1375,
+          1440,
+          1441,
+          1442,
+          1443,
+          1444,
+          1445,
+          1446,
+          1447,
+          1448,
+          1449,
+          1450,
+          1452,
+          1472,
+          1473,
+          1474,
+          1475,
+          1476,
+          1477,
+          1478,
+          1479,
+          1480,
+          1481,
+          1482,
+          1486,
+          1487,
+          2262,
+          2263,
+          2264,
+          2265,
+          2266,
+          2272,
+          2273,
+          2274,
+          2275,
+          2281,
+          2646,
+          3230,
+          3231,
+          3241,
+          3375,
+          4723,
+          5697
+        ]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_772_-2",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Busse halten bei\nRamperstorfferg.\n62-64",
+        "description": "Busse halten bei\nRamperstorfferg.\n62-64",
+        "time": {
+          "start": "2020-01-19T16:40:00.000+0200",
+          "end": "2021-08-31T17:40:00.000+0200"
+        },
+        "relatedStops": [772]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_425_506",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Gleisbauarbeiten\nBusse halten Rotenhofgasse 102-104",
+        "description": "Gleisbauarbeiten\nBusse halten Rotenhofgasse 102-104",
+        "time": {
+          "start": "2020-06-16T16:10:00.000+0200",
+          "end": "2021-06-16T17:10:00.000+0200"
+        },
+        "relatedLines": ["N6"],
+        "relatedStops": [425]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_698_413",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Busse halten\nbei Pilgramgasse 8-10",
+        "description": "Busse halten\nbei Pilgramgasse 8-10",
+        "time": {
+          "start": "2020-06-17T06:40:00.000+0200",
+          "end": "2021-06-17T07:40:00.000+0200"
+        },
+        "relatedLines": ["13A"],
+        "relatedStops": [698]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_1455_149",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Gleisbauarbeiten\nBetrieb ab Baumgarten",
+        "description": "Gleisbauarbeiten\nBetrieb ab Baumgarten",
+        "time": {
+          "start": "2020-07-04T05:58:00.000+0200",
+          "end": "2021-07-04T23:59:00.000+0200"
+        },
+        "relatedLines": ["49"],
+        "relatedStops": [1455]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_1454_149",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Gleisbauarbeiten\nBetrieb ab Baumgarten",
+        "description": "Gleisbauarbeiten\nBetrieb ab Baumgarten",
+        "time": {
+          "start": "2020-07-04T05:58:00.000+0200",
+          "end": "2021-07-04T23:59:00.000+0200"
+        },
+        "relatedLines": ["49"],
+        "relatedStops": [1454]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_1456_149",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Gleisbauarbeiten\nBetrieb ab Baumgarten",
+        "description": "Gleisbauarbeiten\nBetrieb ab Baumgarten",
+        "time": {
+          "start": "2020-07-04T05:58:00.000+0200",
+          "end": "2021-07-04T23:59:00.000+0200"
+        },
+        "relatedLines": ["49"],
+        "relatedStops": [1456]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_1453_149",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Gleisbauarbeiten\nBetrieb ab Baumgarten",
+        "description": "Gleisbauarbeiten\nBetrieb ab Baumgarten",
+        "time": {
+          "start": "2020-07-04T05:58:00.000+0200",
+          "end": "2021-07-04T23:59:00.000+0200"
+        },
+        "relatedLines": ["49"],
+        "relatedStops": [1453]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_1445_149",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Gleisbauarbeiten\nBetrieb nur bis Breitensee <",
+        "description": "Gleisbauarbeiten\nBetrieb nur bis Breitensee <",
+        "time": {
+          "start": "2020-07-04T11:09:00.000+0200",
+          "end": "2021-07-04T12:09:00.000+0200"
+        },
+        "relatedLines": ["49"],
+        "relatedStops": [1445]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_1442_149",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Gleisbauarbeiten\nBetrieb nur bis Breitensee <",
+        "description": "Gleisbauarbeiten\nBetrieb nur bis Breitensee <",
+        "time": {
+          "start": "2020-07-04T11:09:00.000+0200",
+          "end": "2021-07-04T12:09:00.000+0200"
+        },
+        "relatedLines": ["49"],
+        "relatedStops": [1442]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_1375_149",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Gleisbauarbeiten\nBetrieb nur bis Breitensee <",
+        "description": "Gleisbauarbeiten\nBetrieb nur bis Breitensee <",
+        "time": {
+          "start": "2020-07-04T11:09:00.000+0200",
+          "end": "2021-07-04T12:09:00.000+0200"
+        },
+        "relatedLines": ["49"],
+        "relatedStops": [1375]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_1486_149",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Gleisbauarbeiten\nBetrieb nur bis Breitensee <",
+        "description": "Gleisbauarbeiten\nBetrieb nur bis Breitensee <",
+        "time": {
+          "start": "2020-07-04T11:09:00.000+0200",
+          "end": "2021-07-04T12:09:00.000+0200"
+        },
+        "relatedLines": ["49"],
+        "relatedStops": [1486]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_1448_149",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Gleisbauarbeiten\nBetrieb nur bis Breitensee <",
+        "description": "Gleisbauarbeiten\nBetrieb nur bis Breitensee <",
+        "time": {
+          "start": "2020-07-04T11:09:00.000+0200",
+          "end": "2021-07-04T12:09:00.000+0200"
+        },
+        "relatedLines": ["49"],
+        "relatedStops": [1448]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_1441_149",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Gleisbauarbeiten\nBetrieb nur bis Breitensee <",
+        "description": "Gleisbauarbeiten\nBetrieb nur bis Breitensee <",
+        "time": {
+          "start": "2020-07-04T11:09:00.000+0200",
+          "end": "2021-07-04T12:09:00.000+0200"
+        },
+        "relatedLines": ["49"],
+        "relatedStops": [1441]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_1440_149",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Gleisbauarbeiten\nBetrieb nur bis Breitensee <",
+        "description": "Gleisbauarbeiten\nBetrieb nur bis Breitensee <",
+        "time": {
+          "start": "2020-07-04T11:09:00.000+0200",
+          "end": "2021-07-04T12:09:00.000+0200"
+        },
+        "relatedLines": ["49"],
+        "relatedStops": [1440]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_1443_149",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Gleisbauarbeiten\nBetrieb nur bis Breitensee <",
+        "description": "Gleisbauarbeiten\nBetrieb nur bis Breitensee <",
+        "time": {
+          "start": "2020-07-04T11:09:00.000+0200",
+          "end": "2021-07-04T12:09:00.000+0200"
+        },
+        "relatedLines": ["49"],
+        "relatedStops": [1443]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_1444_149",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Gleisbauarbeiten\nBetrieb nur bis Breitensee <",
+        "description": "Gleisbauarbeiten\nBetrieb nur bis Breitensee <",
+        "time": {
+          "start": "2020-07-04T11:09:00.000+0200",
+          "end": "2021-07-04T12:09:00.000+0200"
+        },
+        "relatedLines": ["49"],
+        "relatedStops": [1444]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_1447_149",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Gleisbauarbeiten\nBetrieb nur bis Breitensee <",
+        "description": "Gleisbauarbeiten\nBetrieb nur bis Breitensee <",
+        "time": {
+          "start": "2020-07-04T11:09:00.000+0200",
+          "end": "2021-07-04T12:09:00.000+0200"
+        },
+        "relatedLines": ["49"],
+        "relatedStops": [1447]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_1450_149",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Gleisbauarbeiten\nBetrieb nur bis Breitensee <",
+        "description": "Gleisbauarbeiten\nBetrieb nur bis Breitensee <",
+        "time": {
+          "start": "2020-07-04T11:09:00.000+0200",
+          "end": "2021-07-04T12:09:00.000+0200"
+        },
+        "relatedLines": ["49"],
+        "relatedStops": [1450]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_1446_149",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Gleisbauarbeiten\nBetrieb nur bis Breitensee <",
+        "description": "Gleisbauarbeiten\nBetrieb nur bis Breitensee <",
+        "time": {
+          "start": "2020-07-04T11:09:00.000+0200",
+          "end": "2021-07-04T12:09:00.000+0200"
+        },
+        "relatedLines": ["49"],
+        "relatedStops": [1446]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_1449_149",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Gleisbauarbeiten\nBetrieb nur bis Breitensee <",
+        "description": "Gleisbauarbeiten\nBetrieb nur bis Breitensee <",
+        "time": {
+          "start": "2020-07-04T11:09:00.000+0200",
+          "end": "2021-07-04T12:09:00.000+0200"
+        },
+        "relatedLines": ["49"],
+        "relatedStops": [1449]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_1458_149",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Gleisbauarbeiten\nLinie 52 bis Hütteldorf verlängert",
+        "description": "Gleisbauarbeiten\nLinie 52 bis Hütteldorf verlängert",
+        "time": {
+          "start": "2020-07-04T11:11:00.000+0200",
+          "end": "2021-07-04T12:11:00.000+0200"
+        },
+        "relatedLines": ["49"],
+        "relatedStops": [1458]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_1465_149",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Gleisbauarbeiten\nBetrieb ab Breitensee <",
+        "description": "Gleisbauarbeiten\nBetrieb ab Breitensee <",
+        "time": {
+          "start": "2020-07-04T11:12:00.000+0200",
+          "end": "2021-07-04T12:12:00.000+0200"
+        },
+        "relatedLines": ["49"],
+        "relatedStops": [1465]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_1468_149",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Gleisbauarbeiten\nBetrieb ab Breitensee <",
+        "description": "Gleisbauarbeiten\nBetrieb ab Breitensee <",
+        "time": {
+          "start": "2020-07-04T11:12:00.000+0200",
+          "end": "2021-07-04T12:12:00.000+0200"
+        },
+        "relatedLines": ["49"],
+        "relatedStops": [1468]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_1470_149",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Gleisbauarbeiten\nBetrieb ab Breitensee <",
+        "description": "Gleisbauarbeiten\nBetrieb ab Breitensee <",
+        "time": {
+          "start": "2020-07-04T11:12:00.000+0200",
+          "end": "2021-07-04T12:12:00.000+0200"
+        },
+        "relatedLines": ["49"],
+        "relatedStops": [1470]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_1466_149",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Gleisbauarbeiten\nBetrieb ab Breitensee <",
+        "description": "Gleisbauarbeiten\nBetrieb ab Breitensee <",
+        "time": {
+          "start": "2020-07-04T11:12:00.000+0200",
+          "end": "2021-07-04T12:12:00.000+0200"
+        },
+        "relatedLines": ["49"],
+        "relatedStops": [1466]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_1467_149",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Gleisbauarbeiten\nBetrieb ab Breitensee <",
+        "description": "Gleisbauarbeiten\nBetrieb ab Breitensee <",
+        "time": {
+          "start": "2020-07-04T11:12:00.000+0200",
+          "end": "2021-07-04T12:12:00.000+0200"
+        },
+        "relatedLines": ["49"],
+        "relatedStops": [1467]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_1469_149",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Gleisbauarbeiten\nBetrieb ab Breitensee <",
+        "description": "Gleisbauarbeiten\nBetrieb ab Breitensee <",
+        "time": {
+          "start": "2020-07-04T11:12:00.000+0200",
+          "end": "2021-07-04T12:12:00.000+0200"
+        },
+        "relatedLines": ["49"],
+        "relatedStops": [1469]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_1464_149",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Gleisbauarbeiten\nLinie 49 Betrieb ab Breitensee <",
+        "description": "Gleisbauarbeiten\nLinie 49 Betrieb ab Breitensee <",
+        "time": {
+          "start": "2020-07-04T11:14:00.000+0200",
+          "end": "2021-07-04T12:14:00.000+0200"
+        },
+        "relatedLines": ["49"],
+        "relatedStops": [1464]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_3376_149",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Gleisbauarbeiten\nLinie 49 Betrieb ab Breitensee <",
+        "description": "Gleisbauarbeiten\nLinie 49 Betrieb ab Breitensee <",
+        "time": {
+          "start": "2020-07-04T11:14:00.000+0200",
+          "end": "2021-07-04T12:14:00.000+0200"
+        },
+        "relatedLines": ["49"],
+        "relatedStops": [3376]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_1462_149",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Gleisbauarbeiten\nLinie 49 Betrieb ab Breitensee <",
+        "description": "Gleisbauarbeiten\nLinie 49 Betrieb ab Breitensee <",
+        "time": {
+          "start": "2020-07-04T11:14:00.000+0200",
+          "end": "2021-07-04T12:14:00.000+0200"
+        },
+        "relatedLines": ["49"],
+        "relatedStops": [1462]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_1463_149",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Gleisbauarbeiten\nLinie 49 Betrieb ab Breitensee <",
+        "description": "Gleisbauarbeiten\nLinie 49 Betrieb ab Breitensee <",
+        "time": {
+          "start": "2020-07-04T11:14:00.000+0200",
+          "end": "2021-07-04T12:14:00.000+0200"
+        },
+        "relatedLines": ["49"],
+        "relatedStops": [1463]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_1393_546",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Gleisbauarbeiten\nBusse halten Burggasse 81",
+        "description": "Gleisbauarbeiten\nBusse halten Burggasse 81",
+        "time": {
+          "start": "2020-07-06T00:25:00.000+0200",
+          "end": "2020-09-08T04:30:00.000+0200"
+        },
+        "relatedLines": ["N46"],
+        "relatedStops": [1393]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_1394_546",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Gleisbauarbeiten\nBusse halten Burggasse 67",
+        "description": "Gleisbauarbeiten\nBusse halten Burggasse 67",
+        "time": {
+          "start": "2020-07-06T00:25:00.000+0200",
+          "end": "2020-09-08T04:30:00.000+0200"
+        },
+        "relatedLines": ["N46"],
+        "relatedStops": [1394]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_1378_546",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Gleisbauarbeiten\nBusse halten Josefstädter Straße 62-64",
+        "description": "Gleisbauarbeiten\nBusse halten Josefstädter Straße 62-64",
+        "time": {
+          "start": "2020-07-07T00:45:00.000+0200",
+          "end": "2020-09-08T05:00:00.000+0200"
+        },
+        "relatedLines": ["N46"],
+        "relatedStops": [1378]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_1377_546",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Gleisbauarbeiten\nBusse halten Piaristengasse 2-4",
+        "description": "Gleisbauarbeiten\nBusse halten Piaristengasse 2-4",
+        "time": {
+          "start": "2020-07-07T00:45:00.000+0200",
+          "end": "2020-09-08T05:00:00.000+0200"
+        },
+        "relatedLines": ["N46"],
+        "relatedStops": [1377]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_235_543",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Bauarbeiten\nBusse halten Lazarettgasse 31",
+        "description": "Bauarbeiten\nBusse halten Lazarettgasse 31",
+        "time": {
+          "start": "2020-07-07T00:50:00.000+0200",
+          "end": "2020-10-06T12:01:00.000+0200"
+        },
+        "relatedLines": ["N43"],
+        "relatedStops": [235]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_1392_546",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Busse halten\nThaliastraße 1-3",
+        "description": "Busse halten\nThaliastraße 1-3",
+        "time": {
+          "start": "2020-07-07T00:50:00.000+0200",
+          "end": "2021-07-06T14:36:00.000+0200"
+        },
+        "relatedLines": ["N46"],
+        "relatedStops": [1392]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_1379_546",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Busse halten\nThaliastraße 4-8",
+        "description": "Busse halten\nThaliastraße 4-8",
+        "time": {
+          "start": "2020-07-07T00:50:00.000+0200",
+          "end": "2021-07-06T14:37:00.000+0200"
+        },
+        "relatedLines": ["N46"],
+        "relatedStops": [1379]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_237_543",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Bauarbeiten\nBusse halten Sensengasse nach Spitalgasse",
+        "description": "Bauarbeiten\nBusse halten Sensengasse nach Spitalgasse",
+        "time": {
+          "start": "2020-07-07T00:58:00.000+0200",
+          "end": "2020-10-06T12:02:00.000+0200"
+        },
+        "relatedLines": ["N43"],
+        "relatedStops": [237]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_236_543",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Bauarbeiten\nBusse halten Sensengasse nach Spitalgasse",
+        "description": "Bauarbeiten\nBusse halten Sensengasse nach Spitalgasse",
+        "time": {
+          "start": "2020-07-07T00:58:00.000+0200",
+          "end": "2020-10-06T12:02:00.000+0200"
+        },
+        "relatedLines": ["N43"],
+        "relatedStops": [236]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_1379_146",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Gleisbauarbeiten\nZüge halten Thaliastraße 4-6",
+        "description": "Gleisbauarbeiten\nZüge halten Thaliastraße 4-6",
+        "time": {
+          "start": "2020-07-07T04:00:00.000+0200",
+          "end": "2020-09-07T23:59:00.000+0200"
+        },
+        "relatedLines": ["46"],
+        "relatedStops": [1379]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_1392_146",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Gleisbauarbeiten\nZüge halten Thaliastraße 1-3",
+        "description": "Gleisbauarbeiten\nZüge halten Thaliastraße 1-3",
+        "time": {
+          "start": "2020-07-07T04:20:00.000+0200",
+          "end": "2020-09-07T23:59:00.000+0200"
+        },
+        "relatedLines": ["46"],
+        "relatedStops": [1392]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_811_-2",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Busse halten\nin der Raxstraße 38 ( Nebenfahrbahn)",
+        "description": "Busse halten\nin der Raxstraße 38 ( Nebenfahrbahn)",
+        "time": {
+          "start": "2020-07-07T07:31:00.000+0200",
+          "end": "2020-10-07T08:31:00.000+0200"
+        },
+        "relatedStops": [811]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_1000_-2",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Betrieb von\nFreitag bis Sonntag 10:00-18:00 Uhr",
+        "description": "Betrieb von\nFreitag bis Sonntag 10:00-18:00 Uhr",
+        "time": {
+          "start": "2020-07-07T10:00:00.000+0200",
+          "end": "2020-08-31T18:00:00.000+0200"
+        },
+        "relatedStops": [1000]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_1694_463",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Bauarbeiten\nBusse halten bei Längenfeldgasse 20",
+        "description": "Bauarbeiten\nBusse halten bei Längenfeldgasse 20",
+        "time": {
+          "start": "2020-07-08T04:30:00.000+0200",
+          "end": "2021-07-08T00:00:00.000+0200"
+        },
+        "relatedLines": ["63A"],
+        "relatedStops": [1694]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_425_106",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Züge halten\nbei Quellenstraße 152",
+        "description": "Züge halten\nbei Quellenstraße 152",
+        "time": {
+          "start": "2020-07-08T04:51:00.000+0200",
+          "end": "2021-07-08T05:51:00.000+0200"
+        },
+        "relatedLines": ["6"],
+        "relatedStops": [425]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_1794_463",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Bauarbeiten\nBusse halten Schönbrunner Straße 243",
+        "description": "Bauarbeiten\nBusse halten Schönbrunner Straße 243",
+        "time": {
+          "start": "2020-07-08T07:37:00.000+0200",
+          "end": "2021-07-08T08:37:00.000+0200"
+        },
+        "relatedLines": ["63A"],
+        "relatedStops": [1794]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_1456_549",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Gleisbauarbeiten\nBusse halten Linzer Straße 278 (Linie 52)",
+        "description": "Gleisbauarbeiten\nBusse halten Linzer Straße 278 (Linie 52)",
+        "time": {
+          "start": "2020-07-09T00:35:00.000+0200",
+          "end": "2021-07-08T04:50:00.000+0200"
+        },
+        "relatedLines": ["N49"],
+        "relatedStops": [1456]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_1458_549",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Gleisbauarbeiten\nBusse halten bei Linzer Straße (Linie 52)",
+        "description": "Gleisbauarbeiten\nBusse halten bei Linzer Straße (Linie 52)",
+        "time": {
+          "start": "2020-07-09T00:40:00.000+0200",
+          "end": "2021-07-09T05:10:00.000+0200"
+        },
+        "relatedLines": ["N49"],
+        "relatedStops": [1458]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_1467_549",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Gleisbauarbeiten\nBusse halten Linzer Straße 259 (Linie 52)",
+        "description": "Gleisbauarbeiten\nBusse halten Linzer Straße 259 (Linie 52)",
+        "time": {
+          "start": "2020-07-09T00:53:00.000+0200",
+          "end": "2021-07-08T04:23:00.000+0200"
+        },
+        "relatedLines": ["N49"],
+        "relatedStops": [1467]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_1468_549",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Gleisbauarbeiten\nBetrieb ab Lützowgasse",
+        "description": "Gleisbauarbeiten\nBetrieb ab Lützowgasse",
+        "time": {
+          "start": "2020-07-09T00:55:00.000+0200",
+          "end": "2021-07-08T04:24:00.000+0200"
+        },
+        "relatedLines": ["N49"],
+        "relatedStops": [1468]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_1036_426",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Busse halten\nnach K.-Franz-Josef-Straße",
+        "description": "Busse halten\nnach K.-Franz-Josef-Straße",
+        "time": {
+          "start": "2020-07-13T09:17:00.000+0200",
+          "end": "2021-07-13T10:17:00.000+0200"
+        },
+        "relatedLines": ["26A"],
+        "relatedStops": [1036]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_217_-2",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Gleisbauarbeiten\nalle Züge\nhalten bei \nAlser Str. 8-10",
+        "description": "Gleisbauarbeiten\nalle Züge\nhalten bei \nAlser Str. 8-10",
+        "time": {
+          "start": "2020-07-20T08:48:00.000+0200",
+          "end": "2021-07-20T23:59:00.000+0200"
+        },
+        "relatedStops": [217]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_217_543",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Bauarbeiten\nBusse halten Lazarettgasse 4-6",
+        "description": "Bauarbeiten\nBusse halten Lazarettgasse 4-6",
+        "time": {
+          "start": "2020-07-20T17:10:00.000+0200",
+          "end": "2021-07-20T18:10:00.000+0200"
+        },
+        "relatedLines": ["N43"],
+        "relatedStops": [217]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_218_543",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Bauarbeiten\nBusse halten Lazarettgasse 24",
+        "description": "Bauarbeiten\nBusse halten Lazarettgasse 24",
+        "time": {
+          "start": "2020-07-20T17:11:00.000+0200",
+          "end": "2021-07-20T18:11:00.000+0200"
+        },
+        "relatedLines": ["N43"],
+        "relatedStops": [218]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_219_543",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Bauarbeiten\nBusse halten Lazarettgasse 24",
+        "description": "Bauarbeiten\nBusse halten Lazarettgasse 24",
+        "time": {
+          "start": "2020-07-20T17:11:00.000+0200",
+          "end": "2021-07-20T18:11:00.000+0200"
+        },
+        "relatedLines": ["N43"],
+        "relatedStops": [219]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_786_415",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Bauarbeiten\nHaltestelle wurde ersatzlos aufgelassen",
+        "description": "Bauarbeiten\nHaltestelle wurde ersatzlos aufgelassen",
+        "time": {
+          "start": "2020-07-21T05:00:00.000+0200",
+          "end": "2020-08-10T23:45:00.000+0200"
+        },
+        "relatedLines": ["15A"],
+        "relatedStops": [786]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_347_105",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Bauarbeiten\nZüge halten Taborstraße 80",
+        "description": "Bauarbeiten\nZüge halten Taborstraße 80",
+        "time": {
+          "start": "2020-07-21T14:37:00.000+0200",
+          "end": "2020-08-17T01:00:00.000+0200"
+        },
+        "relatedLines": ["5"],
+        "relatedStops": [347]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_2878_410",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Haltestelle\nverlegt zur Possingergasse 6A",
+        "description": "Haltestelle\nverlegt zur Possingergasse 6A",
+        "time": {
+          "start": "2020-07-22T07:51:00.000+0200",
+          "end": "2021-07-22T08:51:00.000+0200"
+        },
+        "relatedLines": ["10A"],
+        "relatedStops": [2878]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_785_415",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Busse halten\nRaxstraße 27",
+        "description": "Busse halten\nRaxstraße 27",
+        "time": {
+          "start": "2020-07-23T07:06:00.000+0200",
+          "end": "2020-11-23T08:06:00.000+0200"
+        },
+        "relatedLines": ["15A"],
+        "relatedStops": [785]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_3135_412",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Bauarbeiten\nBetrieb ab Margaretenplatz / Schönbrunner Straße",
+        "description": "Bauarbeiten\nBetrieb ab Margaretenplatz / Schönbrunner Straße",
+        "time": {
+          "start": "2020-07-27T08:22:00.000+0200",
+          "end": "2021-07-27T09:22:00.000+0200"
+        },
+        "relatedLines": ["12A"],
+        "relatedStops": [3135]
+      },
+      {
+        "refTrafficInfoCategoryId": 3,
+        "name": "ivu_3135_560",
+        "priority": "1",
+        "owner": "WL",
+        "title": "Bauarbeiten\nBusse halten Rechte Wienzeile 83-85",
+        "description": "Bauarbeiten\nBusse halten Rechte Wienzeile 83-85",
+        "time": {
+          "start": "2020-07-27T08:25:00.000+0200",
+          "end": "2021-07-27T09:25:00.000+0200"
+        },
+        "relatedLines": ["N60"],
+        "relatedStops": [3135]
+      }
+    ],
+    "trafficInfoCategories": [
+      {
+        "id": 1,
+        "refTrafficInfoCategoryGroupId": 1,
+        "name": "aufzugsinfo",
+        "trafficInfoNameList": "ftazS_85",
+        "title": "Aufzugsstörungen"
+      },
+      {
+        "id": 2,
+        "refTrafficInfoCategoryGroupId": 1,
+        "name": "stoerunglang",
+        "trafficInfoNameList": "bms_202007270002",
+        "title": "Störung Lang"
+      },
+      {
+        "id": 3,
+        "refTrafficInfoCategoryGroupId": 1,
+        "name": "stoerungkurz",
+        "trafficInfoNameList": "ivu_772_-2",
+        "title": "Störung Kurz"
+      }
+    ],
+    "trafficInfoCategoryGroups": [{ "id": 1, "name": "pt" }]
+  },
+  "message": {
+    "value": "OK",
+    "messageCode": 1,
+    "serverTime": "2020-07-31T13:39:02.000+0200"
+  }
+}

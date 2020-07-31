@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
 
@@ -8,6 +9,7 @@ import 'package:wienerlinienapp/misc/database.dart';
 import 'package:wienerlinienapp/models/station_model.dart';
 import 'package:http/http.dart' as http;
 import 'package:wienerlinienapp/models/station_request_body.dart';
+import 'package:wienerlinienapp/models/traffic_info.dart';
 
 class WienerLinienMaindataProvider with ChangeNotifier, TypeSpecificAttributes {
   List<StationModel> maindata;
@@ -219,31 +221,35 @@ class WienerLinienMaindataProvider with ChangeNotifier, TypeSpecificAttributes {
     }
   }
 
-  stoerungUeberZeit() async {
+  Future trafficInfo() async {
     try {
       final String json =
-          await rootBundle.loadString('assets/mock/stoerung_mock.json');
-      final decoded = jsonDecode(json);
-      final d = decoded["data"]["pois"] as List<dynamic>;
-
-      return d;
-    } catch (e) {
-      print(e);
-      // throw Exception(e);
-    }
-  }
-
-  stoerungAusLinienListe(String line) async {
-    try {
-      final res = await stoerungUeberZeit() as List<dynamic>;
-      final relatedLines = res.where((item) {
-        final i = item["relatedLines"] ?? [];
-        return i.contains(line);
+          await rootBundle.loadString('assets/mock/traffic_info_mock.json');
+      final Map<String, dynamic> decoded = jsonDecode(json);
+      final List<TrafficInfo> instantiated =
+          decoded["data"]["trafficInfos"].map<TrafficInfo>((item) {
+        print(jsonEncode(item["start"]));
+        return TrafficInfo.getTrafficInfoConstructorFromInput(item);
       }).toList();
-      print(relatedLines);
-      return relatedLines;
+      print("STOERUNG:" + instantiated.toString());
+      return instantiated;
     } catch (e) {
       print(e);
+      //throw Exception(e);
     }
   }
+
+  // stoerungAusLinienListe(String line) async {
+  //   try {
+  //     final res = await stoerungUeberZeit() as List<dynamic>;
+  //     final relatedLines = res.where((item) {
+  //       final i = item["relatedLines"] ?? [];
+  //       return i.contains(line);
+  //     }).toList();
+  //     print(relatedLines);
+  //     return relatedLines;
+  //   } catch (e) {
+  //     print(e);
+  //   }
+  // }
 }

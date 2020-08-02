@@ -32,7 +32,8 @@ class _DetailedTabMenuState extends State<DetailedTabMenu> {
             .toList();
         final List<TrafficInfo> constructionInfos = trafficInfo
             .where((item) =>
-                item.trafficInfoCategory == TrafficInfoCategory.StoerungKurz)
+                item.trafficInfoCategory == TrafficInfoCategory.StoerungKurz &&
+                item.trafficInfoCategory == TrafficInfoCategory.StoerungLang)
             .toList();
         print(constructionInfos);
         print("Elevator " + elevatorInfo.length.toString());
@@ -88,12 +89,12 @@ class _DetailedTabMenuState extends State<DetailedTabMenu> {
                                   (e) => TimeBox(e.countdown.toString()),
                                 )
                                 .take(3),
-                            if (widget._stationRequestBody.lineDetails.first
-                                    .departures.length <
-                                3)
-                              Center(
-                                child: Text("Yes"),
-                              ),
+                            // if (widget._stationRequestBody.lineDetails.first
+                            //         .departures.length <
+                            //     3)
+                            //   Center(
+                            //     child: Text("Yes"),
+                            //   ),
                           ],
                         ),
                       ),

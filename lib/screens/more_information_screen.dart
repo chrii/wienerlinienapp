@@ -16,14 +16,10 @@ class _MoreInformationScreenState extends State<MoreInformationScreen> {
   bool _refreshing = true;
 
   void checkToRefreshData() async {
-    await Provider.of<WienerLinienMaindataProvider>(context, listen: false)
-        .trafficInfo();
     final args =
         ModalRoute.of(context).settings.arguments as Map<String, Object>;
-    final timestamp = args['timestamp'] as DateTime;
-    final timestampNow = args['timestampNow'] as DateTime;
-    print(timestamp);
-    print(timestampNow);
+    // final timestamp = args['timestamp'] as DateTime;
+    // final timestampNow = args['timestampNow'] as DateTime;
     if (false) {
       print("Fetching new Data...");
       final stationRequestBody =
@@ -41,8 +37,6 @@ class _MoreInformationScreenState extends State<MoreInformationScreen> {
   }
 
   Widget build(BuildContext context) {
-    Provider.of<WienerLinienMaindataProvider>(context, listen: false)
-        .trafficInfo();
     checkToRefreshData();
     return Scaffold(
       appBar: AppBar(

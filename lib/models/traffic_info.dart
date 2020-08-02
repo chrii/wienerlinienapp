@@ -28,6 +28,7 @@ class TrafficInfo {
     if (blob["refTrafficInfoCategoryId"] != 0) {
       final TrafficInfoCategory category =
           getTrafficCategory(blob["refTrafficInfoCategoryId"]);
+
       switch (category) {
         case TrafficInfoCategory.Aufzugsstoerungen:
           return TrafficInfo.elevator(
@@ -37,12 +38,10 @@ class TrafficInfo {
             description: blob["description"],
             fromDateInString: blob["attributes"]["ausVon"],
             toDateInString: blob["attributes"]["ausBis"],
-            fromDateInDateTime: DateTime.parse(blob["time"]["start"]),
-            toDateInDateTime: DateTime.parse(blob["time"]["end"]),
             reason: blob["attributes"]["reason"],
-            relatedLines: blob["attributes"]["relatedLines"],
             towards: blob["attributes"]["towards"],
-            relatedStops: blob["attributes"]["relatedStops"],
+            relatedLines: blob["relatedLines"],
+            relatedStops: blob["relatedStops"],
           );
           break;
         case TrafficInfoCategory.StoerungKurz:
@@ -50,16 +49,8 @@ class TrafficInfo {
             trafficInfoCategory: category,
             title: blob["title"],
             description: blob["description"],
-            fromDateInDateTime: blob["start"]["start"] == null
-                ? DateTime.now()
-                : DateTime.parse(blob["time"]["start"]),
-            toDateInDateTime: blob["start"]["end"] == null
-                ? DateTime.now()
-                : DateTime.parse(blob["time"]["end"]),
-            relatedLines: blob["attributes"]["relatedLines"],
-            towards: blob["attributes"]["towards"],
-            relatedStops: blob["attributes"]["relatedStops"],
-            owner: blob["attributes"]["owner"],
+            relatedLines: blob["relatedLines"],
+            relatedStops: blob["relatedStops"],
           );
           break;
         case TrafficInfoCategory.StoerungKurz:
@@ -67,16 +58,8 @@ class TrafficInfo {
             trafficInfoCategory: category,
             title: blob["title"],
             description: blob["description"],
-            fromDateInDateTime: blob["start"]["start"] == null
-                ? DateTime.now()
-                : DateTime.parse(blob["time"]["start"]),
-            toDateInDateTime: blob["start"]["end"] == null
-                ? DateTime.now()
-                : DateTime.parse(blob["time"]["end"]),
-            relatedLines: blob["attributes"]["relatedLines"],
-            towards: blob["attributes"]["towards"],
-            relatedStops: blob["attributes"]["relatedStops"],
-            owner: blob["attributes"]["owner"],
+            relatedLines: blob["relatedLines"],
+            relatedStops: blob["relatedStops"],
           );
           break;
         default:
@@ -87,90 +70,73 @@ class TrafficInfo {
             description: blob["description"],
             fromDateInString: blob["attributes"]["ausVon"],
             toDateInString: blob["attributes"]["ausBis"],
-            fromDateInDateTime: DateTime.parse(blob["time"]["start"]),
-            toDateInDateTime: DateTime.parse(blob["time"]["end"]),
             reason: blob["attributes"]["reason"],
-            relatedLines: blob["attributes"]["relatedLines"],
             towards: blob["attributes"]["towards"],
-            relatedStops: blob["attributes"]["relatedStops"],
+            relatedLines: blob["relatedLines"],
+            relatedStops: blob["relatedStops"],
           );
       }
     }
     return null;
   }
 
-  TrafficInfoCategory trafficInfoCategory;
-  String troubleName;
-  String title;
-  String description;
-  String toDateInString;
-  String fromDateInString;
-  DateTime toDateInDateTime;
-  DateTime fromDateInDateTime;
-  String reason;
-  List<dynamic> relatedLines;
-  List<dynamic> relatedStops;
-  String towards;
-  String owner;
+  TrafficInfoCategory _trafficInfoCategory;
+  String _troubleName;
+  String _title;
+  String _description;
+  String _toDateInString;
+  String _fromDateInString;
+  String _reason;
+  List<dynamic> _relatedLines;
+  List<dynamic> _relatedStops;
+  String _towards;
 
   TrafficInfo.elevator({
-    @required this.trafficInfoCategory,
-    @required this.troubleName,
-    @required this.title,
-    @required this.description,
-    @required this.toDateInString,
-    @required this.toDateInDateTime,
-    @required this.reason,
-    @required this.relatedLines,
-    @required this.relatedStops,
-    @required this.fromDateInString,
-    @required this.fromDateInDateTime,
-    @required this.towards,
+    @required trafficInfoCategory,
+    @required troubleName,
+    @required title,
+    @required description,
+    @required toDateInString,
+    @required reason,
+    @required relatedLines,
+    @required relatedStops,
+    @required fromDateInString,
+    @required towards,
   }) {
-    final tStamp = DateTime.now();
-
-    trafficInfoCategory ??= TrafficInfoCategory.Unbekannt;
-    troubleName ??= "Unkown trouble name";
-    title ??= "Unkown title";
-    description ??= "Unknown description";
-    toDateInString ??= "Unknown Date";
-    fromDateInString ??= "Unkown Date";
-    toDateInDateTime ??= tStamp;
-    fromDateInDateTime ??= tStamp;
-    reason ??= "Unknown reason";
-    relatedLines ??= ["Not found"];
-    towards ??= "Unkown";
-    relatedStops ??= [-1];
-    owner ??= "Owner not available";
+    this._trafficInfoCategory =
+        trafficInfoCategory ?? TrafficInfoCategory.Unbekannt;
+    this._troubleName = troubleName ?? "Unkown trouble name";
+    this._title = title ?? "Unkown title";
+    this._description = description ?? "Unknown description";
+    this._toDateInString = toDateInString ?? "Unknown Date";
+    this._fromDateInString = fromDateInString ?? "Unkown Date";
+    this._reason = reason ?? "Unknown reason";
+    this._relatedLines = relatedLines ?? ["Not found"];
+    this._towards = towards ?? "Unkown";
+    this._relatedStops = relatedStops ?? [-1];
   }
   TrafficInfo.stoerung({
-    @required this.trafficInfoCategory,
-    @required this.title,
-    @required this.description,
-    @required this.toDateInDateTime,
-    @required this.fromDateInDateTime,
-    @required this.relatedLines,
-    @required this.towards,
-    @required this.owner,
-    @required this.relatedStops,
+    @required trafficInfoCategory,
+    @required title,
+    @required description,
+    @required relatedLines,
+    @required relatedStops,
   }) {
-    final tStamp = DateTime.now();
-
-    trafficInfoCategory ??= TrafficInfoCategory.Unbekannt;
-    troubleName ??= "Unkown trouble name";
-    title ??= "Unkown title";
-    description ??= "Unknown description";
-    toDateInString ??= "Unknown Date";
-    fromDateInString ??= "Unkown Date";
-    toDateInDateTime ??= tStamp;
-    fromDateInDateTime ??= tStamp;
-    reason ??= "Unknown reason";
-    relatedLines ??= ["Not found"];
-    towards ??= "Unkown";
-    relatedStops ??= [-1];
-    owner ??= "Owner not available";
-
-    print(toDateInDateTime);
-    print(fromDateInDateTime);
+    _trafficInfoCategory = trafficInfoCategory ?? TrafficInfoCategory.Unbekannt;
+    _title = title ?? "Unkown title";
+    _description = description ?? "Unknown description";
+    _relatedLines = relatedLines ?? ["Not found"];
+    _relatedStops = relatedStops ?? [-1];
   }
+
+  TrafficInfoCategory get trafficInfoCategory => _trafficInfoCategory;
+  String get troubleName => _troubleName;
+  String get title => _title;
+  String get description => _description;
+  String get toDateInString => _toDateInString;
+  String get fromDateInString => _fromDateInString;
+  String get reason => _reason;
+  String get towards => _towards;
+  List<dynamic> get relatedLines => _relatedLines;
+  List<dynamic> get relatedStops => _relatedStops;
 }

@@ -221,21 +221,35 @@ class WienerLinienMaindataProvider with ChangeNotifier, TypeSpecificAttributes {
     }
   }
 
-  Future trafficInfo() async {
+  Future<List<TrafficInfo>> buildTrafficInfoList() async {
     try {
       final String json =
           await rootBundle.loadString('assets/mock/traffic_info_mock.json');
       final Map<String, dynamic> decoded = jsonDecode(json);
       final List<TrafficInfo> instantiated =
           decoded["data"]["trafficInfos"].map<TrafficInfo>((item) {
-        print(jsonEncode(item["start"]));
         return TrafficInfo.getTrafficInfoConstructorFromInput(item);
       }).toList();
-      print("STOERUNG:" + instantiated.toString());
       return instantiated;
     } catch (e) {
       print(e);
-      //throw Exception(e);
+      throw Exception(e);
+    }
+  }
+
+  Future<List<TrafficInfo>> getTrafficInfoByRelatedLines(
+      String lineName) async {
+    try {
+      final trafficInfoList = await buildTrafficInfoList();
+      final filteredInfoList = trafficInfoList
+          .where((item) => item.relatedLines.contains(lineName))
+          .toList();
+
+      print(filteredInfoList.length.toString());
+      return filteredInfoList;
+    } catch (e) {
+      print("ERROR: " + e.toString());
+      throw Exception(e);
     }
   }
 

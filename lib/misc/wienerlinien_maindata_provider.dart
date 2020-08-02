@@ -7,8 +7,10 @@ import 'package:wienerlinienapp/misc/type_specific_attributes_mixin.dart';
 import 'package:wienerlinienapp/misc/database.dart';
 import 'package:wienerlinienapp/models/station_model.dart';
 import 'package:http/http.dart' as http;
+import 'package:wienerlinienapp/models/station_request.dart';
 import 'package:wienerlinienapp/models/station_request_body.dart';
 import 'package:wienerlinienapp/models/traffic_info.dart';
+import 'package:flutter/services.dart' show rootBundle;
 
 class WienerLinienMaindataProvider with ChangeNotifier, TypeSpecificAttributes {
   List<StationModel> maindata;
@@ -252,5 +254,15 @@ class WienerLinienMaindataProvider with ChangeNotifier, TypeSpecificAttributes {
       print("ERROR: " + e.toString());
       throw Exception(e);
     }
+  }
+
+  Future<void> testNewStationRequestModel() async {
+    final json = await rootBundle.loadString("assets/mock/mock.json");
+    final parsedJson = jsonDecode(json);
+    final initatilzedInstances = parsedJson["data"]["monitors"]
+        .map((singleStop) => StationRequest.buildModel(singleStop))
+        .toList();
+    print(initatilzedInstances);
+    notifyListeners();
   }
 }

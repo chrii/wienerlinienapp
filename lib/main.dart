@@ -57,26 +57,6 @@ class InitWidget extends StatelessWidget {
     }
   }
 
-  // _checkIfDBExists(BuildContext context) async {
-  //   final db = SqLiteDatabase("test");
-
-  //   final wienerlinienOgdLinien =
-  //       await db.tableExist("wienerlinien_ogd_linien");
-  //   final wienerlinienOgdHaltepunkte =
-  //       await db.tableExist("wienerlinien_ogd_haltepunkte");
-  //   final wienerlinienOgdSteige =
-  //       await db.tableExist("wienerlinien_ogd_steige");
-  //   final wienerlinienOgdFahrwegverlaeufe =
-  //       await db.tableExist("wienerlinien_ogd_fahrwegverlaeufe");
-
-  //   if (wienerlinienOgdFahrwegverlaeufe &&
-  //       wienerlinienOgdHaltepunkte &&
-  //       wienerlinienOgdSteige &&
-  //       wienerlinienOgdLinien) {
-  //     print('All DBs recognized');
-  //   }
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -140,31 +120,39 @@ class MainBuilder extends StatelessWidget {
         .refreshNotifier;
   }
 
+  test(BuildContext context) async {
+    await Provider.of<WienerLinienMaindataProvider>(context, listen: false)
+        .testNewStationRequestModel();
+  }
+
   @override
   Widget build(BuildContext context) {
+    test(context);
     return Consumer<WienerLinienMaindataProvider>(
       builder: (context, provider, _) {
+        print("Refreshed");
         return RefreshIndicator(
           onRefresh: () async => await _refresh(context),
-          child: FutureBuilder(
-            future: provider.getNearbyStations(),
-            builder: (ctx, snapshot) {
-              return snapshot.connectionState == ConnectionState.waiting
-                  ? Center(child: CircularProgressIndicator())
-                  : Column(
-                      children: [
-                        SizedBox(height: 0),
-                        Expanded(
-                          child: ListView.builder(
-                            itemCount: provider.realtime.length,
-                            itemBuilder: (ctx, i) =>
-                                SingleStationCard(provider.realtime[i]),
-                          ),
-                        ),
-                      ],
-                    );
-            },
-          ),
+          child: Text("Under maintenance"),
+          // child: FutureBuilder(
+          //   future: provider.getNearbyStations(),
+          //   builder: (ctx, snapshot) {
+          //     return snapshot.connectionState == ConnectionState.waiting
+          //         ? Center(child: CircularProgressIndicator())
+          //         : Column(
+          //             children: [
+          //               SizedBox(height: 0),
+          //               Expanded(
+          //                 child: ListView.builder(
+          //                   itemCount: provider.realtime.length,
+          //                   itemBuilder: (ctx, i) =>
+          //                       SingleStationCard(provider.realtime[i]),
+          //                 ),
+          //               ),
+          //             ],
+          //           );
+          //   },
+          // ),
         );
       },
     );

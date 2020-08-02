@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:wienerlinienapp/misc/database.dart';
 import 'package:wienerlinienapp/misc/wienerlinien_maindata_provider.dart';
+import 'package:wienerlinienapp/models/station_request.dart';
 import 'package:wienerlinienapp/models/traffic_info.dart';
 import 'package:wienerlinienapp/screens/app_drawer.dart';
 import 'package:wienerlinienapp/screens/more_information_screen.dart';
@@ -115,46 +116,47 @@ class OfflineBuilder extends StatelessWidget {
 }
 
 class MainBuilder extends StatelessWidget {
-  Future<void> _refresh(BuildContext context) async {
-    await Provider.of<WienerLinienMaindataProvider>(context, listen: false)
-        .refreshNotifier;
-  }
-
-  test(BuildContext context) async {
-    await Provider.of<WienerLinienMaindataProvider>(context, listen: false)
-        .testNewStationRequestModel();
-  }
+  List<StationRequest> _stationRequest;
 
   @override
   Widget build(BuildContext context) {
-    test(context);
-    return Consumer<WienerLinienMaindataProvider>(
-      builder: (context, provider, _) {
-        print("Refreshed");
-        return RefreshIndicator(
-          onRefresh: () async => await _refresh(context),
-          child: Text("Under maintenance"),
-          // child: FutureBuilder(
-          //   future: provider.getNearbyStations(),
-          //   builder: (ctx, snapshot) {
-          //     return snapshot.connectionState == ConnectionState.waiting
-          //         ? Center(child: CircularProgressIndicator())
-          //         : Column(
-          //             children: [
-          //               SizedBox(height: 0),
-          //               Expanded(
-          //                 child: ListView.builder(
-          //                   itemCount: provider.realtime.length,
-          //                   itemBuilder: (ctx, i) =>
-          //                       SingleStationCard(provider.realtime[i]),
-          //                 ),
-          //               ),
-          //             ],
-          //           );
-          //   },
-          // ),
-        );
-      },
-    );
+    return FutureBuilder(
+        future:
+            Provider.of<WienerLinienMaindataProvider>(context, listen: false)
+                .testNewStationRequestModel(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+          _stationRequest = snapshot.data as List<StationRequest>;
+          print("From Widget: " + _stationRequest.toString());
+          return RefreshIndicator(
+            onRefresh: () async {
+              try {
+                final response =
+                    await Provider.of<WienerLinienMaindataProvider>(context,
+                            listen: false)
+                        .testNewStationRequestModel();
+                _stationRequest = response;
+              } catch (e) {
+                print("Error refreshing Data: " + e.toString());
+              }
+            },
+            child: Column(
+              children: [
+                SizedBox(height: 0),
+                Expanded(
+                  child: ListView.builder(
+                      itemCount: _stationRequest.length,
+                      itemBuilder: (ctx, i) =>
+                          // SingleStationCard(_stationRequest[i]),
+                          Text("Henlo: " + i.toString())),
+                ),
+              ],
+            ),
+          );
+        });
   }
 }

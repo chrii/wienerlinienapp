@@ -256,13 +256,15 @@ class WienerLinienMaindataProvider with ChangeNotifier, TypeSpecificAttributes {
     }
   }
 
-  Future<void> testNewStationRequestModel() async {
+  Future<List<StationRequest>> testNewStationRequestModel() async {
     final json = await rootBundle.loadString("assets/mock/mock.json");
     final parsedJson = jsonDecode(json);
-    final initatilzedInstances = parsedJson["data"]["monitors"]
-        .map((singleStop) => StationRequest.buildModel(singleStop))
+    final List<StationRequest> initatilzedInstances = parsedJson["data"]
+            ["monitors"]
+        .map<StationRequest>(
+            (singleStop) => StationRequest.buildModel(singleStop))
         .toList();
     print(initatilzedInstances);
-    notifyListeners();
+    return initatilzedInstances;
   }
 }

@@ -115,48 +115,58 @@ class OfflineBuilder extends StatelessWidget {
   }
 }
 
-class MainBuilder extends StatelessWidget {
+class MainBuilder extends StatefulWidget {
+  _MainBuilderState createState() => _MainBuilderState();
+}
+
+class _MainBuilderState extends State<MainBuilder> {
   List<StationRequest> _stationRequest;
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-        future:
-            Provider.of<WienerLinienMaindataProvider>(context, listen: false)
-                .testNewStationRequestModel(),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(
-              child: CircularProgressIndicator(),
-            );
-          }
-          _stationRequest = snapshot.data as List<StationRequest>;
-          print("From Widget: " + _stationRequest.toString());
-          return RefreshIndicator(
-            onRefresh: () async {
-              try {
-                final response =
-                    await Provider.of<WienerLinienMaindataProvider>(context,
-                            listen: false)
-                        .testNewStationRequestModel();
-                _stationRequest = response;
-              } catch (e) {
-                print("Error refreshing Data: " + e.toString());
-              }
-            },
-            child: Column(
-              children: [
-                SizedBox(height: 0),
-                Expanded(
-                  child: ListView.builder(
-                      itemCount: _stationRequest.length,
-                      itemBuilder: (ctx, i) =>
-                          // SingleStationCard(_stationRequest[i]),
-                          Text("Henlo: " + i.toString())),
-                ),
-              ],
-            ),
+      future: Provider.of<WienerLinienMaindataProvider>(context, listen: false)
+          .fetchAllNearbyStationsFromAPI(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return Center(
+            child: CircularProgressIndicator(),
           );
-        });
+        }
+        _stationRequest = snapshot.data as List<StationRequest>;
+        return RefreshIndicator(
+          onRefresh: () async {
+            try {
+              final response = await Provider.of<WienerLinienMaindataProvider>(
+                      context,
+                      listen: false)
+                  .fetchAllNearbyStationsFromAPI();
+              _stationRequest = response;
+              setState(() => _stationRequest = response);
+            } catch (e) {
+              print("Error refreshing Data: " + e.toString());
+            }
+          },
+          child: Column(
+            children: [
+              SizedBox(height: 0),
+              Expanded(
+                child: _stationRequest.length <= 0
+                    ? Center(
+                        child: Text(
+                            "Derzeit keine Stationen in der Nähe oder  keine Daten verfügbar"),
+                      )
+                    : ListView.builder(
+                        itemCount: _stationRequest.length,
+                        itemBuilder: (ctx, i) =>
+                            // SingleStationCard(_stationRequest[i]),
+                            Text("Henlo: " + i.toString()),
+                      ),
+              ),
+            ],
+          ),
+        );
+      },
+    );
   }
 }

@@ -56,6 +56,7 @@ class WienerLinienMaindataProvider with ChangeNotifier, TypeSpecificAttributes {
         final result = await db.fetchCoordinateRangeFromDatabase(
             actualLocation.latitude, actualLocation.longitude);
         final mapToModel = result.map((item) {
+          //TODO: Rework Model
           return StationModel(
             lineID: item["LineID"],
             lineText: item["LineText"],
@@ -256,15 +257,69 @@ class WienerLinienMaindataProvider with ChangeNotifier, TypeSpecificAttributes {
     }
   }
 
-  Future<List<StationRequest>> testNewStationRequestModel() async {
-    final json = await rootBundle.loadString("assets/mock/mock.json");
-    final parsedJson = jsonDecode(json);
-    final List<StationRequest> initatilzedInstances = parsedJson["data"]
-            ["monitors"]
-        .map<StationRequest>(
-            (singleStop) => StationRequest.buildModel(singleStop))
-        .toList();
-    print(initatilzedInstances);
-    return initatilzedInstances;
+  Future<List<StationRequest>> fetchAllNearbyStationsFromAPI() async {
+    try {
+      final List<String> nearbyStopIDs = await getNearbyStationsFromDatabase();
+      final String url = buildUrl(nearbyStopIDs);
+
+      final http.Response response = await http.get(url);
+      if (response.statusCode < 400) {
+        final parsedResponse = jsonDecode(response.body);
+
+        final List<StationRequest> initializeInstances = parsedResponse["data"]
+                ["monitors"]
+            .map<StationRequest>(
+                (singleStop) => StationRequest.buildModel(singleStop))
+            .toList();
+        return initializeInstances;
+      }
+
+      // final json = await rootBundle.loadString("assets/mock/mock.json");
+      // final parsedJson = jsonDecode(json);
+      // final List<StationRequest> initatilzedInstances = parsedJson["data"]
+      //         ["monitors"]
+      //     .map<StationRequest>(
+      //         (singleStop) => StationRequest.buildModel(singleStop))
+      //     .toList();
+      // return initatilzedInstances;
+    } catch (e) {
+      throw ("Error Status Code: " + e.toString());
+    }
+  }
+
+  Future<List> getNearbyStationsFromDatabase() async {
+    final db = SqLiteDatabase("test");
+    try {
+      final Location location = Location();
+      final access = await location.requestPermission();
+      final actualLocation = await location.getLocation();
+
+      if (access == PermissionStatus.granted) {
+        final result = await db.fetchCoordinateRangeFromDatabase(
+            actualLocation.latitude, actualLocation.longitude);
+        if (result == null) throw Exception("Failed fetching coordinates");
+
+        final mapToModel = result.map((item) {
+          //TODO: Rework Model
+          return StationModel(
+            lineID: item["LineID"],
+            lineText: item["LineText"],
+            stopID: item["StopID"],
+            meansOfTransport: item["MeansOfTransport"],
+            stopText: item["StopText"],
+            longitude: double.parse(item["Longitude"]),
+            latitude: double.parse(item["Latitude"]),
+          );
+        }).toList();
+        final List getOnlyStopIDs =
+            mapToModel.map((stopIDs) => stopIDs.stopID).toSet().toList();
+        return getOnlyStopIDs;
+      } else {
+        throw Exception("No GPS permission");
+      }
+    } catch (e) {
+      print("Error: " + e.toString());
+      return null;
+    }
   }
 }

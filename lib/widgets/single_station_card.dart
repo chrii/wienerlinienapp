@@ -79,6 +79,8 @@ class _SingleStationCard extends State<SingleStationCard> {
                 icon: Icon(Icons.info_outline),
                 label: Text("More Info"),
                 onPressed: () {
+                  print("Button pressed: " +
+                      widget._stationData.lineDetails.toString());
                   return Navigator.of(context)
                       .pushNamed(MoreInformationScreen.routeName, arguments: {
                     "stationLine": widget._stationData,

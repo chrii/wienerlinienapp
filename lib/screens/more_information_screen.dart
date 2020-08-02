@@ -18,6 +18,7 @@ class _MoreInformationScreenState extends State<MoreInformationScreen> {
     final args =
         ModalRoute.of(context).settings.arguments as Map<String, Object>;
     print("Fetching new Data...");
+    // print("Is null: " + args["stationLine"].toString());
     final stationRequestBody =
         await Provider.of<WienerLinienMaindataProvider>(context, listen: false)
             .fetchFromAPIWithLineNumber(args["stationLine"]);
@@ -34,7 +35,8 @@ class _MoreInformationScreenState extends State<MoreInformationScreen> {
     checkToRefreshData();
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: _stationRequestBody.lineDetails.first.lineTypeColor,
+        backgroundColor:
+            _stationRequestBody.lineDetails.first.lineTypeColor ?? Colors.white,
         actions: [
           IconButton(icon: Icon(Icons.star_border), onPressed: () {}),
         ],

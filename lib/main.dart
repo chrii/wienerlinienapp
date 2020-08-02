@@ -45,7 +45,7 @@ class InitWidget extends StatelessWidget {
   Future<bool> _checkInternetAndDatabaseConnectionStatus(
       BuildContext context) async {
     try {
-      _checkIfDBExists(context);
+      // _checkIfDBExists(context);
       final result = await InternetAddress.lookup("example.com");
       if (result.isNotEmpty || result[0].rawAddress.isNotEmpty) {
         return true;
@@ -57,25 +57,25 @@ class InitWidget extends StatelessWidget {
     }
   }
 
-  _checkIfDBExists(BuildContext context) async {
-    final db = SqLiteDatabase("test");
+  // _checkIfDBExists(BuildContext context) async {
+  //   final db = SqLiteDatabase("test");
 
-    final wienerlinienOgdLinien =
-        await db.tableExist("wienerlinien_ogd_linien");
-    final wienerlinienOgdHaltepunkte =
-        await db.tableExist("wienerlinien_ogd_haltepunkte");
-    final wienerlinienOgdSteige =
-        await db.tableExist("wienerlinien_ogd_steige");
-    final wienerlinienOgdFahrwegverlaeufe =
-        await db.tableExist("wienerlinien_ogd_fahrwegverlaeufe");
+  //   final wienerlinienOgdLinien =
+  //       await db.tableExist("wienerlinien_ogd_linien");
+  //   final wienerlinienOgdHaltepunkte =
+  //       await db.tableExist("wienerlinien_ogd_haltepunkte");
+  //   final wienerlinienOgdSteige =
+  //       await db.tableExist("wienerlinien_ogd_steige");
+  //   final wienerlinienOgdFahrwegverlaeufe =
+  //       await db.tableExist("wienerlinien_ogd_fahrwegverlaeufe");
 
-    if (wienerlinienOgdFahrwegverlaeufe &&
-        wienerlinienOgdHaltepunkte &&
-        wienerlinienOgdSteige &&
-        wienerlinienOgdLinien) {
-      print('All DBs recognized');
-    }
-  }
+  //   if (wienerlinienOgdFahrwegverlaeufe &&
+  //       wienerlinienOgdHaltepunkte &&
+  //       wienerlinienOgdSteige &&
+  //       wienerlinienOgdLinien) {
+  //     print('All DBs recognized');
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -142,34 +142,6 @@ class MainBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final mock = {
-      "refTrafficInfoCategoryId": 1,
-      "name": "ftazS_1031271",
-      "title": "Donaustadtbrücke",
-      "description":
-          "U2 Bahnsteig Richtung Karlsplatz - Ausgang Kaisermühlendamm",
-      "attributes": {
-        "ausBis": "14.08.2020 00:45",
-        "reason":
-            "Voraussichtlich bis 03.08.2020 außer Betrieb! Auf Ersatzteile wird gewartet.",
-        "relatedLines": ["U2"],
-        "station": "Donaustadtbrücke",
-        "ausVon": "13.08.2020 20:45",
-        "location":
-            "U2 Bahnsteig Richtung Karlsplatz - Ausgang Kaisermühlendamm",
-        "towards": "U2 Karlsplatz",
-        "relatedStops": [4255],
-        "status": "außer Betrieb"
-      },
-      "time": {
-        "start": "2020-08-13T20:45:00.000+0200",
-        "end": "2020-08-14T00:45:00.000+0200"
-      },
-      "relatedLines": ["U2"],
-      "relatedStops": [4255]
-    };
-    final TrafficInfo tr = TrafficInfo.getTrafficInfoConstructorFromInput(mock);
-    print("TrafficInfo: " + tr.description);
     return Consumer<WienerLinienMaindataProvider>(
       builder: (context, provider, _) {
         return RefreshIndicator(

@@ -44,6 +44,7 @@ class AppDrawer extends StatelessWidget {
           FlatButton(
               //48.231338, 16.352092
               onPressed: () => db.fetch(),
+              // onPressed: () {},
               child: Text("fetchRandom")),
           FlatButton(
               onPressed: () {

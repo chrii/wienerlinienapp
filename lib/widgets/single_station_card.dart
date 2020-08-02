@@ -78,7 +78,6 @@ class _SingleStationCard extends State<SingleStationCard> {
                 materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                 icon: Icon(Icons.info_outline),
                 label: Text("More Info"),
-                // TODO: PARAMS ANPASSEN
                 onPressed: () {
                   return Navigator.of(context)
                       .pushNamed(MoreInformationScreen.routeName, arguments: {

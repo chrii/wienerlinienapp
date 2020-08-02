@@ -4,7 +4,6 @@ import 'package:wienerlinienapp/misc/type_specific_attributes_mixin.dart';
 import 'package:wienerlinienapp/misc/wienerlinien_maindata_provider.dart';
 import 'package:wienerlinienapp/models/station_request_body.dart';
 import 'package:wienerlinienapp/widgets/detailed_tab_menu.dart';
-import 'package:wienerlinienapp/widgets/single_station_card.dart';
 
 class MoreInformationScreen extends StatefulWidget with TypeSpecificAttributes {
   static const routeName = "/more-information-screen";
@@ -18,18 +17,13 @@ class _MoreInformationScreenState extends State<MoreInformationScreen> {
   void checkToRefreshData() async {
     final args =
         ModalRoute.of(context).settings.arguments as Map<String, Object>;
-    // final timestamp = args['timestamp'] as DateTime;
-    // final timestampNow = args['timestampNow'] as DateTime;
-    if (false) {
-      print("Fetching new Data...");
-      final stationRequestBody =
-          await Provider.of<WienerLinienMaindataProvider>(context,
-                  listen: false)
-              .fetchFromAPIWithLineNumber(args["stationLine"]);
-      setState(() {
-        _stationRequestBody = stationRequestBody;
-      });
-    }
+    print("Fetching new Data...");
+    final stationRequestBody =
+        await Provider.of<WienerLinienMaindataProvider>(context, listen: false)
+            .fetchFromAPIWithLineNumber(args["stationLine"]);
+    setState(() {
+      _stationRequestBody = stationRequestBody;
+    });
     if (_refreshing) {
       print("Using previous Data...");
       _stationRequestBody = args['stationLine'];

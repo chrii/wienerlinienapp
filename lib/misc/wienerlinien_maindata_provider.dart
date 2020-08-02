@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:convert';
-import 'package:flutter/services.dart' show rootBundle;
 
 import 'package:flutter/material.dart';
 import 'package:location/location.dart';
@@ -248,25 +247,10 @@ class WienerLinienMaindataProvider with ChangeNotifier, TypeSpecificAttributes {
           .where((item) => item.relatedLines.contains(lineName))
           .toList();
 
-      print(filteredInfoList.length.toString());
       return filteredInfoList;
     } catch (e) {
       print("ERROR: " + e.toString());
       throw Exception(e);
     }
   }
-
-  // stoerungAusLinienListe(String line) async {
-  //   try {
-  //     final res = await stoerungUeberZeit() as List<dynamic>;
-  //     final relatedLines = res.where((item) {
-  //       final i = item["relatedLines"] ?? [];
-  //       return i.contains(line);
-  //     }).toList();
-  //     print(relatedLines);
-  //     return relatedLines;
-  //   } catch (e) {
-  //     print(e);
-  //   }
-  // }
 }

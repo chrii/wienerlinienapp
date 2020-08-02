@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:wienerlinienapp/misc/database.dart';
 import 'package:wienerlinienapp/misc/wienerlinien_maindata_provider.dart';
 import 'package:wienerlinienapp/models/traffic_info.dart';
 import 'package:wienerlinienapp/screens/app_drawer.dart';
@@ -44,10 +45,9 @@ class InitWidget extends StatelessWidget {
   Future<bool> _checkInternetAndDatabaseConnectionStatus(
       BuildContext context) async {
     try {
+      _checkIfDBExists(context);
       final result = await InternetAddress.lookup("example.com");
       if (result.isNotEmpty || result[0].rawAddress.isNotEmpty) {
-        // await Provider.of<WienerLinienMaindataProvider>(context, listen: false)
-        //     .stoerungUeberZeit();
         return true;
       }
       return false;
@@ -57,9 +57,28 @@ class InitWidget extends StatelessWidget {
     }
   }
 
+  _checkIfDBExists(BuildContext context) async {
+    final db = SqLiteDatabase("test");
+
+    final wienerlinienOgdLinien =
+        await db.tableExist("wienerlinien_ogd_linien");
+    final wienerlinienOgdHaltepunkte =
+        await db.tableExist("wienerlinien_ogd_haltepunkte");
+    final wienerlinienOgdSteige =
+        await db.tableExist("wienerlinien_ogd_steige");
+    final wienerlinienOgdFahrwegverlaeufe =
+        await db.tableExist("wienerlinien_ogd_fahrwegverlaeufe");
+
+    if (wienerlinienOgdFahrwegverlaeufe &&
+        wienerlinienOgdHaltepunkte &&
+        wienerlinienOgdSteige &&
+        wienerlinienOgdLinien) {
+      print('All DBs recognized');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    // final db = SqLiteDatabase("test");
     return Scaffold(
       drawer: AppDrawer(),
       appBar: AppBar(

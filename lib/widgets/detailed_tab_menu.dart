@@ -32,10 +32,10 @@ class _DetailedTabMenuState extends State<DetailedTabMenu> {
             .toList();
         final List<TrafficInfo> constructionInfos = trafficInfo
             .where((item) =>
-                item.trafficInfoCategory == TrafficInfoCategory.StoerungKurz &&
+                item.trafficInfoCategory == TrafficInfoCategory.StoerungKurz ||
                 item.trafficInfoCategory == TrafficInfoCategory.StoerungLang)
             .toList();
-        print(constructionInfos);
+        print("Const: " + constructionInfos.toString());
         print("Elevator " + elevatorInfo.length.toString());
         print("Barrier " +
             widget._stationRequestBody.lineDetails.first.barrierFree
@@ -160,7 +160,6 @@ class ConstructionInfoBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(trafficInfo);
     return trafficInfo.length <= 0
         ? Text("Derzeit keine Informationen über Störungen vorhanden")
         : ListView.builder(

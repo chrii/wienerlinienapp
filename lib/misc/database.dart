@@ -125,16 +125,18 @@ class SqLiteDatabase {
     final d = await SqLiteDatabase.database(databaseName);
 
     try {
-      final haltepunkte = await d.rawQuery('''
-      SELECT f.LineID, f.LineText, h.StopID, f.MeansOfTransport, h.StopText, 
-      h.Longitude, h.Latitude
-      FROM wienerlinien_ogd_fahrwegverlaeufe l 
-      INNER JOIN wienerlinien_ogd_linien f ON l.LineID = f.LineID 
-      INNER JOIN wienerlinien_ogd_haltepunkte h ON l.StopID = h.StopID
-      WHERE h.StopText = "Johann-Nepomuk-Berger-Platz" AND f.LineText = "2"
-          ''');
+      final fetch = await d.rawQuery(
+          "SELECT * FROM sqlite_master WHERE name ='wienerlinien_ogd_linienn' and type='table'");
 
-      final haltepunkteMap = ignoreUnusedIDs(haltepunkte);
+      // final haltepunkte = await d.rawQuery('''
+      // SELECT f.LineID, f.LineText, h.StopID, f.MeansOfTransport, h.StopText,
+      // h.Longitude, h.Latitude
+      // FROM wienerlinien_ogd_fahrwegverlaeufe l
+      // INNER JOIN wienerlinien_ogd_linien f ON l.LineID = f.LineID
+      // INNER JOIN wienerlinien_ogd_haltepunkte h ON l.StopID = h.StopID
+      // WHERE h.StopText = "Johann-Nepomuk-Berger-Platz" AND f.LineText = "2"
+      //     ''');
+      print(fetch);
     } catch (e) {
       print("ERROR FETCHING DATA:" + e.toString());
       return null;
@@ -159,7 +161,7 @@ class SqLiteDatabase {
     }
   }
 
-  ignoreUnusedIDs(List blob) {
+  List ignoreUnusedIDs(List blob) {
     final List<String> lineIDs = blob
         .map<String>((element) => element["LineID"].toString())
         .toSet()
@@ -169,5 +171,18 @@ class SqLiteDatabase {
         .toList();
 
     return haltepunkteMap;
+  }
+
+  Future<bool> tableExist(String table) async {
+    try {
+      final db = await SqLiteDatabase.database(databaseName);
+      print("Checking $table...");
+      final check = await db.rawQuery(
+          "SELECT * FROM sqlite_master WHERE name ='wienerlinien_ogd_linienn' and type='table'");
+      return check.length <= 0 ? false : true;
+    } catch (e) {
+      print("Error: " + e.toString());
+      return false;
+    }
   }
 }

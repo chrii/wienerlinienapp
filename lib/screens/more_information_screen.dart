@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:wienerlinienapp/misc/type_specific_attributes_mixin.dart';
-import 'package:wienerlinienapp/misc/wienerlinien_maindata_provider.dart';
 import 'package:wienerlinienapp/models/station_request.dart';
-import 'package:wienerlinienapp/models/station_request_body.dart';
 import 'package:wienerlinienapp/widgets/detailed_tab_menu.dart';
 
 class MoreInformationScreen extends StatefulWidget with TypeSpecificAttributes {

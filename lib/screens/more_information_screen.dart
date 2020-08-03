@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:wienerlinienapp/misc/type_specific_attributes_mixin.dart';
 import 'package:wienerlinienapp/misc/wienerlinien_maindata_provider.dart';
+import 'package:wienerlinienapp/models/station_request.dart';
 import 'package:wienerlinienapp/models/station_request_body.dart';
 import 'package:wienerlinienapp/widgets/detailed_tab_menu.dart';
 
@@ -11,23 +12,16 @@ class MoreInformationScreen extends StatefulWidget with TypeSpecificAttributes {
 }
 
 class _MoreInformationScreenState extends State<MoreInformationScreen> {
-  StationRequestBody _stationRequestBody;
+  StationRequest _stationRequestBody;
   bool _refreshing = true;
 
   void checkToRefreshData() async {
     final args =
         ModalRoute.of(context).settings.arguments as Map<String, Object>;
     print("Fetching new Data...");
-    // print("Is null: " + args["stationLine"].toString());
-    final stationRequestBody =
-        await Provider.of<WienerLinienMaindataProvider>(context, listen: false)
-            .fetchFromAPIWithLineNumber(args["stationLine"]);
-    setState(() {
-      _stationRequestBody = stationRequestBody;
-    });
     if (_refreshing) {
       print("Using previous Data...");
-      _stationRequestBody = args['stationLine'];
+      _stationRequestBody = args['stationData'];
     }
   }
 
@@ -35,8 +29,7 @@ class _MoreInformationScreenState extends State<MoreInformationScreen> {
     checkToRefreshData();
     return Scaffold(
       appBar: AppBar(
-        backgroundColor:
-            _stationRequestBody.lineDetails.first.lineTypeColor ?? Colors.white,
+        backgroundColor: _stationRequestBody.lineTypeColor ?? Colors.white,
         actions: [
           IconButton(icon: Icon(Icons.star_border), onPressed: () {}),
         ],
@@ -62,8 +55,8 @@ class _MoreInformationScreenState extends State<MoreInformationScreen> {
                           alignment: Alignment.center,
                           decoration: BoxDecoration(
                             image: DecorationImage(
-                                image: AssetImage(_stationRequestBody
-                                    .lineDetails.first.typeImage),
+                                image:
+                                    AssetImage(_stationRequestBody.typeImage),
                                 fit: BoxFit.fill),
                           ),
                         ),
@@ -71,11 +64,10 @@ class _MoreInformationScreenState extends State<MoreInformationScreen> {
                           bottom: 5.0,
                           left: 5.0,
                           child: CircleAvatar(
-                            backgroundColor: _stationRequestBody
-                                .lineDetails.first.lineTypeColor,
+                            backgroundColor: _stationRequestBody.lineTypeColor,
                             maxRadius: 30.0,
                             child: Text(
-                              _stationRequestBody.lineDetails.first.name,
+                              _stationRequestBody.lineName,
                               style: TextStyle(fontSize: 28),
                             ),
                           ),
@@ -104,8 +96,7 @@ class _MoreInformationScreenState extends State<MoreInformationScreen> {
                     child: ListView(
                       children: <Widget>[
                         ListTile(
-                          title: Text(
-                              _stationRequestBody.lineDetails.first.towards),
+                          title: Text(_stationRequestBody.towards),
                           subtitle: Text("Richtung"),
                           trailing: Icon(Icons.compare_arrows),
                         ),
@@ -126,14 +117,7 @@ class _MoreInformationScreenState extends State<MoreInformationScreen> {
                       textColor: Colors.black87,
                     ),
                     IconButton(
-                      onPressed: () async {
-                        final res = await Provider.of<
-                                    WienerLinienMaindataProvider>(context,
-                                listen: false)
-                            .fetchFromAPIWithLineNumber(_stationRequestBody);
-                        setState(() => _stationRequestBody = res);
-                        _refreshing = false;
-                      },
+                      onPressed: () async {},
                       icon: Icon(Icons.refresh),
                     ),
                     FlatButton.icon(

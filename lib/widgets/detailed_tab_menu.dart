@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:wienerlinienapp/misc/wienerlinien_maindata_provider.dart';
-import 'package:wienerlinienapp/models/station_request_body.dart';
+import 'package:wienerlinienapp/models/station_request.dart';
 import 'package:wienerlinienapp/models/traffic_info.dart';
 import 'package:wienerlinienapp/widgets/single_station_card.dart';
 
 class DetailedTabMenu extends StatefulWidget {
-  final StationRequestBody _stationRequestBody;
+  final StationRequest _stationRequestBody;
 
   DetailedTabMenu(this._stationRequestBody);
 
@@ -17,8 +17,7 @@ class _DetailedTabMenuState extends State<DetailedTabMenu> {
   Widget build(BuildContext context) {
     return FutureBuilder(
       future: Provider.of<WienerLinienMaindataProvider>(context, listen: false)
-          .getTrafficInfoByRelatedLines(
-              widget._stationRequestBody.lineDetails.first.name),
+          .getTrafficInfoByRelatedLines(widget._stationRequestBody.lineName),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return Center(child: CircularProgressIndicator());
@@ -35,11 +34,6 @@ class _DetailedTabMenuState extends State<DetailedTabMenu> {
                 item.trafficInfoCategory == TrafficInfoCategory.StoerungKurz ||
                 item.trafficInfoCategory == TrafficInfoCategory.StoerungLang)
             .toList();
-        print("Const: " + constructionInfos.toString());
-        print("Elevator " + elevatorInfo.length.toString());
-        print("Barrier " +
-            widget._stationRequestBody.lineDetails.first.barrierFree
-                .toString());
 
         return DefaultTabController(
           length: 3,
@@ -58,8 +52,7 @@ class _DetailedTabMenuState extends State<DetailedTabMenu> {
                     width: double.infinity,
                     child: TabBar(
                       labelColor: Colors.black38,
-                      indicatorColor: widget
-                          ._stationRequestBody.lineDetails.first.lineTypeColor,
+                      indicatorColor: widget._stationRequestBody.lineTypeColor,
                       tabs: <Widget>[
                         Tab(
                           icon: Icon(Icons.timer),
@@ -83,28 +76,19 @@ class _DetailedTabMenuState extends State<DetailedTabMenu> {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            ...widget._stationRequestBody.lineDetails.first
-                                .departures
+                            ...widget._stationRequestBody.departures
                                 .map(
-                                  (e) => TimeBox(e.countdown.toString()),
+                                  (e) => TimeBox(e["departureTime"]["countdown"]
+                                      .toString()),
                                 )
                                 .take(3),
-                            // if (widget._stationRequestBody.lineDetails.first
-                            //         .departures.length <
-                            //     3)
-                            //   Center(
-                            //     child: Text("Yes"),
-                            //   ),
                           ],
                         ),
                       ),
                       Center(
-                        child: widget._stationRequestBody.lineDetails.first
-                                .barrierFree
-                            ? ElevatorInfoBuilder(
-                                elevatorInfo,
-                                widget
-                                    ._stationRequestBody.lineDetails.first.name)
+                        child: widget._stationRequestBody.barrierFree
+                            ? ElevatorInfoBuilder(elevatorInfo,
+                                widget._stationRequestBody.lineName)
                             : Text("Diese Station ist nicht Barrierefrei"),
                       ),
                       Center(

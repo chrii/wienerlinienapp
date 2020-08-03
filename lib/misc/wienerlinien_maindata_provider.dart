@@ -272,6 +272,8 @@ class WienerLinienMaindataProvider with ChangeNotifier, TypeSpecificAttributes {
                 (singleStop) => StationRequest.buildModel(singleStop))
             .toList();
         return initializeInstances;
+      } else {
+        throw Exception(response.statusCode);
       }
 
       // final json = await rootBundle.loadString("assets/mock/mock.json");

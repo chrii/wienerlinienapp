@@ -159,8 +159,8 @@ class _MainBuilderState extends State<MainBuilder> {
                     : ListView.builder(
                         itemCount: _stationRequest.length,
                         itemBuilder: (ctx, i) =>
-                            // SingleStationCard(_stationRequest[i]),
-                            Text("Henlo: " + i.toString()),
+                            // Text("Henlo: " + i.toString()),
+                            SingleStationCard(_stationRequest[i]),
                       ),
               ),
             ],

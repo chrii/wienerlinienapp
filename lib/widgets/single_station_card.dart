@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:wienerlinienapp/misc/type_specific_attributes_mixin.dart';
+import 'package:wienerlinienapp/models/station_request.dart';
 import 'package:wienerlinienapp/models/station_request_body.dart';
 import 'package:wienerlinienapp/models/station_model.dart';
 import 'package:wienerlinienapp/screens/more_information_screen.dart';
 
 class SingleStationCard extends StatefulWidget {
-  final StationRequestBody _stationData;
+  final StationRequest _stationData;
 
   SingleStationCard(this._stationData);
 
@@ -28,13 +29,11 @@ class _SingleStationCard extends State<SingleStationCard> {
         children: <Widget>[
           ListTile(
             title: Text(widget._stationData.stationTitle),
-            subtitle: Text(
-                "Richtung ${widget._stationData.lineDetails.first.towards ?? "-"}"),
+            subtitle: Text("Richtung ${widget._stationData.towards ?? "-"}"),
             leading: CircleAvatar(
-              backgroundColor:
-                  widget._stationData.lineDetails.first.lineTypeColor,
+              backgroundColor: widget._stationData.lineTypeColor,
               child: Text(
-                widget._stationData.lineDetails.first.name,
+                widget._stationData.lineName,
                 style:
                     TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
               ),
@@ -44,23 +43,13 @@ class _SingleStationCard extends State<SingleStationCard> {
             Container(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  TimeBox(widget._stationData.lineDetails.first.departures[0]
-                          .countdown
-                          .toString() ??
-                      "-"),
-                  if (widget._stationData.lineDetails.first.departures.length >=
-                      2)
-                    TimeBox(widget._stationData.lineDetails.first.departures[1]
-                            .countdown
-                            .toString() ??
-                        "-"),
-                  if (widget._stationData.lineDetails.first.departures.length >=
-                      3)
-                    TimeBox(widget._stationData.lineDetails.first.departures[2]
-                            .countdown
-                            .toString() ??
-                        "-"),
+                  ...widget._stationData.departures
+                      .map((departure) => TimeBox(
+                          departure["departureTime"]["countdown"].toString()))
+                      .toList()
+                      .take(3)
                 ],
               ),
             ),
@@ -79,11 +68,10 @@ class _SingleStationCard extends State<SingleStationCard> {
                 icon: Icon(Icons.info_outline),
                 label: Text("More Info"),
                 onPressed: () {
-                  print("Button pressed: " +
-                      widget._stationData.lineDetails.toString());
+                  print("Button pressed: " + widget._stationData.toString());
                   return Navigator.of(context)
                       .pushNamed(MoreInformationScreen.routeName, arguments: {
-                    "stationLine": widget._stationData,
+                    "stationData": widget._stationData,
                     "timestamp": timestamp,
                     "timestampNow": DateTime.now(),
                   });

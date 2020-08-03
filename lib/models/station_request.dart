@@ -6,7 +6,8 @@ class StationRequest with TypeSpecificAttributes {
   static StationRequest buildModel(Map<String, dynamic> blob) {
     final checkDeparute =
         blob["lines"].first["departures"]["departure"].map((deparuteItem) {
-      if (deparuteItem.length <= 0) {
+      if (deparuteItem.length <= 0 ||
+          deparuteItem["departureTime"]["countdown"] == null) {
         return {
           "timePlanned": DateTime.now().toIso8601String(),
           "timeReal": DateTime.now().toIso8601String(),

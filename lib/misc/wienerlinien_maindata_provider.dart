@@ -257,33 +257,36 @@ class WienerLinienMaindataProvider with ChangeNotifier, TypeSpecificAttributes {
     }
   }
 
-  Future<List<StationRequest>> fetchAllNearbyStationsFromAPI() async {
+  Future<List<StationRequest>> fetchAllNearbyStationsFromAPI(
+      {bool mock = false}) async {
     try {
-      final List<String> nearbyStopIDs = await getNearbyStationsFromDatabase();
-      final String url = buildUrl(nearbyStopIDs);
+      if (!mock) {
+        final List<String> nearbyStopIDs =
+            await getNearbyStationsFromDatabase();
+        final String url = buildUrl(nearbyStopIDs);
+        final http.Response response = await http.get(url);
+        if (response.statusCode < 400) {
+          final parsedResponse = jsonDecode(response.body);
 
-      final http.Response response = await http.get(url);
-      if (response.statusCode < 400) {
-        final parsedResponse = jsonDecode(response.body);
-
-        final List<StationRequest> initializeInstances = parsedResponse["data"]
+          final List<StationRequest> initializeInstances =
+              parsedResponse["data"]["monitors"]
+                  .map<StationRequest>(
+                      (singleStop) => StationRequest.buildModel(singleStop))
+                  .toList();
+          return initializeInstances;
+        } else {
+          throw Exception(response.statusCode);
+        }
+      } else {
+        final json = await rootBundle.loadString("assets/mock/mock.json");
+        final parsedJson = jsonDecode(json);
+        final List<StationRequest> initatilzedInstances = parsedJson["data"]
                 ["monitors"]
             .map<StationRequest>(
                 (singleStop) => StationRequest.buildModel(singleStop))
             .toList();
-        return initializeInstances;
-      } else {
-        throw Exception(response.statusCode);
+        return initatilzedInstances;
       }
-
-      // final json = await rootBundle.loadString("assets/mock/mock.json");
-      // final parsedJson = jsonDecode(json);
-      // final List<StationRequest> initatilzedInstances = parsedJson["data"]
-      //         ["monitors"]
-      //     .map<StationRequest>(
-      //         (singleStop) => StationRequest.buildModel(singleStop))
-      //     .toList();
-      // return initatilzedInstances;
     } catch (e) {
       throw ("Error Status Code: " + e.toString());
     }
